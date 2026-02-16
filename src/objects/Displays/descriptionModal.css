@@ -1,0 +1,25 @@
+.description-popover .description-content {
+  color: black;
+  background: white;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  max-width: 320px;
+  max-height: 60vh;
+  overflow: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 5px solid rgba(0,0,0,1);
+}
+
+.description-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  background: black;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* keep the old classes in case other code referenced them */
+.description-modal-backdrop{ display:none; }
+.description-modal-content{ display:none; }

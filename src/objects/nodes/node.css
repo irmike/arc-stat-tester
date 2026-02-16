@@ -1,0 +1,48 @@
+.node-root {width: 140px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.node-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-image-button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+}
+
+.node-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+.description-popover .description-content {
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    max-width: 320px;
+}
+
+.desc-close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
