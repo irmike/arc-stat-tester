@@ -41,15 +41,12 @@ function Node (props) {
                 <p>{description}</p>
             </DescriptionModal>
 
-            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+            <div className="stat-display">
                 <span> <button onClick={decreaseCount} aria-label={`Decrease ${nodeName}`}> - </button> </span>
                 <span> <h2>{count}/{pointCap}</h2> </span>
                 <span> <button onClick={increaseCount} aria-label={`Increase ${nodeName}`}> + </button>< /span>
             </div>
-
         </div>
-
-
     );
 }
 

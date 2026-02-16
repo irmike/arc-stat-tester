@@ -1,0 +1,22 @@
+.tree-section {
+  display: flex;
+}
+
+.tree-section__row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.tree-section__summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tree-section__summary-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

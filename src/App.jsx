@@ -151,7 +151,13 @@ function App() {
                         "--pan-y": `${pan.y}px`
                     }}
                 >
-                    <div className="tree-content">
+                    <div className="tree-content"
+                         style={{
+                             display: 'flex',
+                             flexDirection: 'column',
+                             justifyContent: 'center',
+                             alignItems: 'center'
+                         }}>
                         <Tree />
                     </div>
                 </div>

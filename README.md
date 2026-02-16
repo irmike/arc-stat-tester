@@ -15,3 +15,11 @@
 ## Github Pages Deployment: 'https://irmike.github.io/arc-stat-tester/'
 
 ## Configuration- Vite base path: `/arc-stat-tester/`
+
+## TODO: 
+### [ ] Adjust View so that app is zoomed out by default. 
+### [ ] Add connection between nodes.
+### [ ] Create branch layer between nodes to point to their connections.
+### [ ] Make use of pointLock.
+### [ ] Implement use of individual stat images.
+

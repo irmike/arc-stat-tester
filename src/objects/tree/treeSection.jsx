@@ -1,5 +1,6 @@
 import {useState} from "react";
 import Node from "../nodes/node.jsx";
+import "./treeSection.css";
 
 const directionToFlex = {
     "left": ["row-reverse", "column-reverse"],
@@ -24,19 +25,15 @@ function TreeSection ({name, direction, data, pointFuncts}) {
 
     // create the subsection with each node then create the branch in same iteration IF previous nodes were rendered
     return (
-        <div style={{display: 'flex', flexDirection: directionToFlex[direction][0]}}>
+        <div
+            className="tree-section"
+            style={{flexDirection: directionToFlex[direction][0]}}
+        >
             {data.map((subsection, subSectionIndex) => (
-                // Create an outer div for each row
                 <div
                     key={subSectionIndex}
-                    className="row-div"
-                    style={{
-                        display: 'flex',
-                        flexDirection: directionToFlex[direction][1],
-                        justifyContent: 'space-evenly',
-                        // gap: '16px',
-                        alignItems: 'center'
-                }}
+                    className="tree-section__row"
+                    style={{flexDirection: directionToFlex[direction][1]}}
                 >
                     {subsection.map((nodeData, i) => (
                         <Node
@@ -52,9 +49,14 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                     ))}
                 </div>
             ))}
-            <div>
-                <h2>{name.toUpperCase()}</h2>
-                <h2>{total}</h2>
+            <div
+                className="tree-section__summary"
+                style={{flexDirection: directionToFlex[direction][1]}}
+            >
+                <div className="tree-section__summary-inner">
+                    <h2>{name.toUpperCase()}</h2>
+                    <h2>{total}</h2>
+                </div>
             </div>
         </div>
     );

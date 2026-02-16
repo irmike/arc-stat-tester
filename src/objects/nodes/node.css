@@ -5,8 +5,14 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 8px;
+    padding: 20px;
 }
+
+.stat-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center}
 
 .node-image-wrapper {
     display: flex;
