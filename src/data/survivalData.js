@@ -1,4 +1,4 @@
-import circleNode from '../objects/nodes/circle50x50.png'
+import circleNode from '../assets/images/circle50x50.png'
 
 const survival = [
     // subsection

@@ -1,4 +1,5 @@
-.node-root {width: 140px;
+.node-root {
+    width: 140px;
     height: 180px;
     display: flex;
     flex-direction: column;
@@ -12,12 +13,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center}
-
-.node-image-wrapper {
-    display: flex;
     align-items: center;
-    justify-content: center;
 }
 
 .node-image-button {
@@ -25,6 +21,9 @@
     background: transparent;
     padding: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .node-image {

@@ -1,4 +1,4 @@
-import circleNode from '../objects/nodes/circle50x50.png'
+import circleNode from '../assets/images/circle50x50.png'
 
 // This file is a blank Template for the arc raiders skill tree.
 

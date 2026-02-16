@@ -1,13 +1,14 @@
 import './App.css';
-import Tree from "./objects/tree/tree.jsx";
+import Tree from "./components/Tree/Tree.jsx";
 import { useState, useRef, useEffect} from "react";
 
 function App() {
-    const [scale, setScale] = useState(0.8); // start zoomed out
+    const [scale, setScale] = useState(1); // will be auto-fitted
     const [pan, setPan] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
 
     const containerRef = useRef(null);
+    const treeInnerRef = useRef(null);
     const pinch = useRef({ active: false, startDist: 0, startScale: 1 });
 
     // refs for drag math
@@ -15,6 +16,24 @@ function App() {
     const startPointRef = useRef({ x: 0, y: 0 });
     const startPanRef = useRef({ x: 0, y: 0 });
     const panRef = useRef({ x: 0, y: 0 });
+
+    // Auto-fit tree to viewport height on mount
+    useEffect(() => {
+        if (!treeInnerRef.current || !containerRef.current) return;
+
+        const timer = setTimeout(() => {
+            const treeHeight = treeInnerRef.current.scrollHeight;
+            const containerHeight = containerRef.current.clientHeight;
+
+            if (treeHeight > 0 && containerHeight > 0) {
+                // the 0.9 is to leave some padding for the tree view
+                const fitScale = (containerHeight * 0.85) / treeHeight;
+                setScale(Math.min(fitScale, 1));
+            }
+        }, 100); // small delay to ensure render
+
+        return () => clearTimeout(timer);
+    }, []);
 
     useEffect(() => {
         panRef.current = pan;
@@ -144,6 +163,7 @@ function App() {
             <div className="tree-wrapper">
                 {/* apply scale and pan via CSS variables */}
                 <div
+                    ref={treeInnerRef}
                     className="tree-inner"
                     style={{
                         "--scale": String(scale),
@@ -151,15 +171,7 @@ function App() {
                         "--pan-y": `${pan.y}px`
                     }}
                 >
-                    <div className="tree-content"
-                         style={{
-                             display: 'flex',
-                             flexDirection: 'column',
-                             justifyContent: 'center',
-                             alignItems: 'center'
-                         }}>
-                        <Tree />
-                    </div>
+                    <Tree />
                 </div>
             </div>
         </div>

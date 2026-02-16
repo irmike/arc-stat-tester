@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {createPortal} from "react-dom";
-import "./descriptionModal.css";
+import "./DescriptionModal.css";
 
 
 function DescriptionModal({ isOpen, onClose, children, anchorRef}) {

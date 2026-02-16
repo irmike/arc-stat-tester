@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useRef} from "react";
-import DescriptionModal from "../Displays/descriptionModal.jsx";
-import "./node.css";
+import DescriptionModal from "../DescriptionModal/DescriptionModal.jsx";
+import "./Node.css";
 
 
 function Node (props) {
@@ -26,15 +26,13 @@ function Node (props) {
 
     return (
         <div className="node-root">
-            <div className="node-image-wrapper">
-                <button ref={buttonRef}
-                        className="node-image-button"
-                        onClick={() => setIsDescOpen(!isDescOpen)}
-                        aria-label={`Open Description for ${nodeName}`}
-                >
-                    <img src={image} className={"node-image node-" + nodeName} alt={nodeName} />
-                </button>
-            </div>
+            <button ref={buttonRef}
+                    className="node-image-button"
+                    onClick={() => setIsDescOpen(!isDescOpen)}
+                    aria-label={`Open Description for ${nodeName}`}
+            >
+                <img src={image} className={"node-image node-" + nodeName} alt={nodeName} />
+            </button>
 
             <DescriptionModal isOpen={isDescOpen} onClose={() => setIsDescOpen(false)} anchorRef={buttonRef}>
                 <h2>{nodeName}</h2>

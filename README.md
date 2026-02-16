@@ -17,7 +17,9 @@
 ## Configuration- Vite base path: `/arc-stat-tester/`
 
 ## TODO: 
-### [ ] Adjust View so that app is zoomed out by default. 
+### [x] Correct messy file structure
+### [x] Adjust View so that app is zoomed out by default.
+### [ ] Add in tests and make future changes through PRs and run tests in PR checks.
 ### [ ] Add connection between nodes.
 ### [ ] Create branch layer between nodes to point to their connections.
 ### [ ] Make use of pointLock.

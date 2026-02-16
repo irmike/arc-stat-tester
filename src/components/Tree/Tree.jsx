@@ -1,9 +1,9 @@
 import {useCallback, useMemo, useState, useLayoutEffect, useRef} from "react";
-import TreeSection from "./treeSection.jsx";
-import mobility from "../../Data/mobilityData.jsx";
-import conditioning from "../../Data/conditioningData.jsx";
-import survival from "../../Data/survivalData.jsx";
-import "./tree.css";
+import TreeSection from "../TreeSection/TreeSection.jsx";
+import mobility from "../../data/mobilityData.js";
+import conditioning from "../../data/conditioningData.js";
+import survival from "../../data/survivalData.js";
+import "./Tree.css";
 
 function Tree() {
     const defaultPoints = 76;
@@ -40,15 +40,13 @@ function Tree() {
     }, []);
 
     return (
-        <div>
+        <>
             <h1> Points available: {points}</h1>
             <div className="tree-root">
                 <div className="tree-top" style={{maxWidth: sectLimit}}>
-                    <div className="tree-top-inner">
-                        <TreeSection name="Mobility" direction="up" data={mobility} pointFuncts={pointFuncts}/>
-                    </div>
+                    <TreeSection name="Mobility" direction="up" data={mobility} pointFuncts={pointFuncts}/>
                 </div>
-                <div className="tree-side" style={{maxHeight: sectLimit}}>
+                <div className="tree-sides" style={{maxHeight: sectLimit}}>
                     <div ref={leftRef} className="tree-side" style={{width: sideWidth ? `${sideWidth}px` : 'auto'}}>
                         <TreeSection name="Conditioning" direction="left" data={conditioning}
                                      pointFuncts={pointFuncts}/>
@@ -58,7 +56,7 @@ function Tree() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 
