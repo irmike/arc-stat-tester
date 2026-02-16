@@ -8,6 +8,7 @@ function App() {
     const [isDragging, setIsDragging] = useState(false);
 
     const containerRef = useRef(null);
+    const pinch = useRef({ active: false, startDist: 0, startScale: 1 });
 
     // refs for drag math
     const draggingRef = useRef(false);
@@ -29,6 +30,64 @@ function App() {
             e.preventDefault();
             const step = e.deltaY > 0 ? -0.05 : 0.05;
             setScale(prev => clamp(prev + step));
+        };
+
+        // Pinch handlers (existing)
+        const getDist = (t1, t2) => {
+            const dx = t1.clientX - t2.clientX;
+            const dy = t1.clientY - t2.clientY;
+            return Math.hypot(dx, dy);
+        };
+
+        const onTouchStart = e => {
+            if (e.touches.length === 2) {
+                // start pinch
+                pinch.current.active = true;
+                pinch.current.startDist = getDist(e.touches[0], e.touches[1]);
+                pinch.current.startScale = scale;
+                // cancel any dragging start
+                draggingRef.current = false;
+                setIsDragging(false);
+            } else if (e.touches.length === 1 && !pinch.current.active) {
+                // start single-finger pan
+                const t = e.touches[0];
+                draggingRef.current = true;
+                setIsDragging(true);
+                startPointRef.current = { x: t.clientX, y: t.clientY };
+                startPanRef.current = panRef.current;
+            }
+        };
+
+        const onTouchMove = e => {
+            if (pinch.current.active && e.touches.length === 2) {
+                e.preventDefault();
+                const dist = getDist(e.touches[0], e.touches[1]);
+                const newScale = pinch.current.startScale * (dist / pinch.current.startDist);
+                setScale(() => clamp(newScale));
+                return;
+            }
+
+            if (draggingRef.current && e.touches.length === 1) {
+                e.preventDefault();
+                const t = e.touches[0];
+                const dx = t.clientX - startPointRef.current.x;
+                const dy = t.clientY - startPointRef.current.y;
+                // adjust pan by dividing by scale so visual movement matches finger
+                const newPan = {
+                    x: startPanRef.current.x + dx / Math.max(scale, 0.001),
+                    y: startPanRef.current.y + dy / Math.max(scale, 0.001)
+                };
+                panRef.current = newPan;
+                setPan(newPan);
+            }
+        };
+
+        const onTouchEnd = e => {
+            if (e.touches.length < 2) pinch.current.active = false;
+            if (e.touches.length === 0) {
+                draggingRef.current = false;
+                setIsDragging(false);
+            }
         };
 
         // Mouse pan handlers
@@ -64,13 +123,21 @@ function App() {
         container.addEventListener('wheel', onWheel, { passive: false });
         container.addEventListener('mousedown', onMouseDown);
 
+        container.addEventListener('touchstart', onTouchStart, { passive: false });
+        container.addEventListener('touchmove', onTouchMove, { passive: false });
+        container.addEventListener('touchend', onTouchEnd);
+
         return () => {
             container.removeEventListener('wheel', onWheel);
             container.removeEventListener('mousedown', onMouseDown);
             window.removeEventListener('mousemove', onMouseMove);
             window.removeEventListener('mouseup', onMouseUp);
+
+            container.removeEventListener('touchstart', onTouchStart);
+            container.removeEventListener('touchmove', onTouchMove);
+            container.removeEventListener('touchend', onTouchEnd);
         };
-    }, [scale]); // rebind when scale changes (used in math)
+    }, [scale]); // rebind when scale changes
 
     return (
         <div className={`App ${isDragging ? 'dragging' : ''}`} ref={containerRef}>
