@@ -41,7 +41,9 @@ function Tree() {
 
     return (
         <>
-            <h1> Points available: {points}</h1>
+            <div className="tree-header" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '80%'}}>
+                <h1> Points available: {points}</h1>
+            </div>
             <div className="tree-root">
                 <div className="tree-top" style={{maxWidth: sectLimit}}>
                     <TreeSection name="Mobility" direction="up" data={mobility} pointFuncts={pointFuncts}/>
