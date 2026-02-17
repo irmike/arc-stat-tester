@@ -9,7 +9,7 @@ const conditioning = [
             description: "Wearing a shield doesn't slow you down as much.",
             pointCap: 5,
             pointLock: 0,
-            opens: ["Blast-Born", "Gentle Pressure"],
+            unlocks: ["Blast-Born", "Gentle Pressure"],
             image: circleNode
         }
     ],
@@ -21,6 +21,7 @@ const conditioning = [
             description: "Your hearing is less affected by nearby explosions.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Fight Or Flight"],
             image: circleNode
         },
         // node
@@ -29,6 +30,7 @@ const conditioning = [
             description: "You make less noise when breaching.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Proficient Pryer"],
             image: circleNode
         }
     ],
@@ -38,6 +40,7 @@ const conditioning = [
             description: "When you're hurt in combat, regain a fixed amount of stamina. Has cooldown between uses.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Survivor's Stamina"],
             image: circleNode
         },
         {
@@ -45,6 +48,7 @@ const conditioning = [
             description: "Breaching doors and containers takes less time",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Unburdened Roll"],
             image: circleNode
         }
     ],
@@ -53,14 +57,16 @@ const conditioning = [
             name: "Survivor's Stamina",
             description: "When you're critically hurt, your stamina regenerates faster.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 15,
+            unlocks: ["Downed But Determined", "A Little Extra"],
             image: circleNode
         },
         {
             name: "Unburdened Roll",
             description: "If your shield breaks, your first Dodge Roll within a few seconds does not cost stamina.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 15,
+            unlocks: ["A Little Extra", "Effortless Swing"],
             image: circleNode
         }
     ],
@@ -70,6 +76,7 @@ const conditioning = [
             description: "When you're downed, it takes longer before you collapse.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Turtle Crawl"],
             image: circleNode
         },
         {
@@ -77,6 +84,7 @@ const conditioning = [
             description: "Breaching an object generates resources.",
             pointCap: 1,
             pointLock: 0,
+            unlocks: ["Loaded Arms"],
             image: circleNode
         },
         {
@@ -84,6 +92,7 @@ const conditioning = [
             description: "Melee abilities cost less stamina.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Sky-Clearing Swing"],
             image: circleNode
         }
     ],
@@ -93,6 +102,7 @@ const conditioning = [
             description: "While downed, you take less damage.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Back On Your Feet"],
             image: circleNode
         },
         {
@@ -100,6 +110,7 @@ const conditioning = [
             description: "Your equipped weapon has less impact on your encumbrance.",
             pointCap: 1,
             pointLock: 0,
+            unlocks: ["Back On Your Feet", "Flyswatter"],
             image: circleNode
         },
         {
@@ -107,6 +118,7 @@ const conditioning = [
             description: "You deal more melee damage to drones.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Flyswatter"],
             image: circleNode
         }
     ],
@@ -115,14 +127,16 @@ const conditioning = [
             name: "Back On Your Feet",
             description: "When you're critically hurt, your health regenerates until a certain limit.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 36,
+            unlocks: [],
             image: circleNode
         },
         {
             name: "Flyswatter",
             description: "Wasps and Turrets can now be destroyed with a single melee attack.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 36,
+            unlocks: [],
             image: circleNode
         }
     ]
