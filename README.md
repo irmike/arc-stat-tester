@@ -26,4 +26,10 @@
 ### [ ] Make use of pointLock.
 ### [ ] Implement use of individual stat images.
 ### [ ] stylize everything and make it look nice.
+### [ ] fix issue with description modal flickering when it appears for the first time
+### [ ] Make description modal appear in a better position
+### [ ] 
+### [ ] 
+### [ ] 
+### [ ] 
 

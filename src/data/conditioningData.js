@@ -9,6 +9,7 @@ const conditioning = [
             description: "Wearing a shield doesn't slow you down as much.",
             pointCap: 5,
             pointLock: 0,
+            opens: ["Blast-Born", "Gentle Pressure"],
             image: circleNode
         }
     ],

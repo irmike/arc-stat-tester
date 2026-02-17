@@ -1,5 +1,6 @@
 import './App.css';
 import Tree from "./components/Tree/Tree.jsx";
+import InfoDisplay from "./components/InfoDisplay/InfoDisplay.jsx";
 import { useState, useRef, useEffect} from "react";
 
 function App() {
@@ -174,6 +175,7 @@ function App() {
                     <Tree />
                 </div>
             </div>
+            <InfoDisplay />
         </div>
     );
 }
