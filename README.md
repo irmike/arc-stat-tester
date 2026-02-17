@@ -16,7 +16,6 @@ A modern, interactive skill/stat tree builder for games, built with React and Vi
 - [Testing](#testing)
 - [TODO](#todo)
 - [License](#license)
-- [Contact](#contact)
 
 ---
 
