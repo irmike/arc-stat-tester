@@ -9,6 +9,7 @@ const survival = [
             description: "Your movement speed while crouching is increased.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Looter's Instincts", "Revitalizing Squat"],
             image: circleNode
         }
     ],
@@ -20,6 +21,7 @@ const survival = [
             description: "When searching a container, loot is revealed faster.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Silent Scavenger"],
             image: circleNode
         },
         // node
@@ -28,6 +30,7 @@ const survival = [
             description: "Stamina regeneration while crouched is increased.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["In-round Crafting"],
             image: circleNode
         }
     ],
@@ -37,6 +40,7 @@ const survival = [
             description: "You make less noise when looting.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Suffer In Silence"],
             image: circleNode
         },
         {
@@ -44,6 +48,7 @@ const survival = [
             description: "Unlocks the ability to field-craft items while topside.",
             pointCap: 1,
             pointLock: 0,
+            unlocks: ["Good As New"],
             image: circleNode
         }
     ],
@@ -52,14 +57,16 @@ const survival = [
             name: "Suffer In Silence",
             description: "While critically hurt, your movement makes less noise.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 15,
+            unlocks: ["Broad Shoulders", "Traveling Tinkerer"],
             image: circleNode
         },
         {
             name: "Good As New",
             description: "While under a healing effect, stamina regeneration is increased.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 15,
+            unlocks: ["Traveling Tinkerer", "Stubborn Mule"],
             image: circleNode
         }
     ],
@@ -69,6 +76,7 @@ const survival = [
             description: "Increases the maximum weight you can carry.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Looter's Luck"],
             image: circleNode
         },
         {
@@ -76,6 +84,7 @@ const survival = [
             description: "Unlocks additional items to field craft.",
             pointCap: 1,
             pointLock: 0,
+            unlocks: ["One Raider's Scraps"],
             image: circleNode
         },
         {
@@ -83,6 +92,7 @@ const survival = [
             description: "Your stamina regeneration is less affected by being over-encumbered.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Three Deep Breaths"],
             image: circleNode
         }
     ],
@@ -92,6 +102,7 @@ const survival = [
             description: "While looting, there's a chance to reveal twice as many items at once.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Security Breach"],
             image: circleNode
         },
         {
@@ -99,6 +110,7 @@ const survival = [
             description: "When looting Raider containers, you have a small chance of finding additional field-crafted items.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Security Breach", "Minesweeper"],
             image: circleNode
         },
         {
@@ -106,6 +118,7 @@ const survival = [
             description: "After an ability drains your stamina, you recover more quickly.",
             pointCap: 5,
             pointLock: 0,
+            unlocks: ["Minesweeper"],
             image: circleNode
         }
     ],
@@ -114,14 +127,16 @@ const survival = [
             name: "Security Breach",
             description: "Lets you breach Security Lockers.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 36,
+            unlocks: [],
             image: circleNode
         },
         {
             name: "Minesweeper",
             description: "Mines and explosive deployables can be defused when in close proximity.",
             pointCap: 1,
-            pointLock: 0,
+            pointLock: 36,
+            unlocks: [],
             image: circleNode
         }
     ]

@@ -1,35 +1,143 @@
-## Features: React single page app - Built with Vite - Deployed to GitHub Pages
+# Arc Stat Tester
+
+A modern, interactive skill/stat tree builder for games, built with React and Vite.
+
+[![GitHub Pages](https://img.shields.io/badge/demo-online-brightgreen)](https://irmike.github.io/arc-stat-tester/)
+
+---
+
+## Table of Contents
+- [How it works](#how-it-works)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Deployment](#deployment)
+- [Configuration](#configuration)
+- [Testing](#testing)
+- [TODO](#todo)
+- [License](#license)
+
+---
+
+## How it works
+
+The app builds a tree structure using a hierarchy of React components:
+
+- **Tree**: The root component that creates and arranges multiple TreeSections (e.g., Mobility, Conditioning, Survival).
+- **TreeSection**: Represents a section of the tree (a branch or category). Each TreeSection contains rows of Nodes.
+- **Node**: Represents an individual skill or stat node. Nodes can unlock or lock other nodes based on user interaction and the `unlocks` property.
+
+### Visual Structure (ASCII Art)
+
+```
+Tree
+│
+├── TreeSection: Mobility
+│     ├── Node: Nimble Climber
+│     ├── Node: Marathon Runner
+│     └── ...
+│
+├── TreeSection: Conditioning
+│     ├── Node: Iron Lungs
+│     ├── Node: Quick Recovery
+│     └── ...
+│
+└── TreeSection: Survival
+      ├── Node: Agile Croucher
+      ├── Node: Silent Scavenger
+      └── ...
+```
+
+### Node Unlocking Example
+
+```
+TreeSection: Mobility
+  ├── Node: Nimble Climber (unlocks → Marathon Runner)
+  └── Node: Marathon Runner (locked until Nimble Climber is unlocked)
+```
+
+- When a Node's count increases from 0, it unlocks the nodes listed in its `unlocks` array.
+- When a Node's count decreases to 0, it locks those nodes again (except the first node in each section, which is always unlocked).
+
+---
+
+## Features
+- Interactive skill/stat tree with unlock/lock logic
+- Responsive design, works on desktop and mobile
+- Zoom and pan functionality
+- Modular React component structure
+- Deployed to GitHub Pages
+
+---
 
 ## Getting Started
-### Prerequisites- Node.js- npm
 
-### Installation. Install dependencies:
-```npm install```
+### Prerequisites
+- Node.js
+- npm
 
-## Usage### Development```npm run dev```
+### Installation
+```sh
+npm install
+```
 
-### Build```npm run build```
+---
 
-### Deploy```npm run deploy```
+## Usage
 
-## Github Pages Deployment: 'https://irmike.github.io/arc-stat-tester/'
+### Development
+```sh
+npm run dev
+```
 
-## Configuration- Vite base path: `/arc-stat-tester/`
+### Build
+```sh
+npm run build
+```
 
-## TODO: 
-### [x] Correct messy file structure
-### [x] Adjust View so that app is zoomed out by default.
-### [x-ish] Add in tests and make future changes through PRs and run tests in PR checks.
-### [ ] Fill out test coverage
-### [ ] Add connection between nodes.
-### [ ] Create branch layer between nodes to point to their connections.
-### [ ] Make use of pointLock.
-### [ ] Implement use of individual stat images.
-### [ ] stylize everything and make it look nice.
-### [ ] fix issue with description modal flickering when it appears for the first time
-### [ ] Make description modal appear in a better position
-### [ ] 
-### [ ] 
-### [ ] 
-### [ ] 
+### Deploy
+```sh
+npm run deploy
+```
+
+---
+
+## Deployment
+
+The app is deployed at: [https://irmike.github.io/arc-stat-tester/](https://irmike.github.io/arc-stat-tester/)
+
+---
+
+## Configuration
+- Vite base path: `/arc-stat-tester/`
+
+---
+
+## Testing
+- Run all tests:
+```sh
+npm test
+```
+- Tests are run automatically on pull requests.
+
+---
+
+## TODO
+- [x] Correct messy file structure
+- [x] Add connection between nodes
+- [ ] Create branch layer between nodes to point to their connections
+- [ ] Make use of pointLock
+- [ ] Implement use of individual stat images
+- [ ] Stylize everything and make it look nice
+- [ ] Fix issue with description modal flickering
+- [ ] Move touch and mouse controls in app to a dedicated location
+
+---
+
+## License
+
+MIT License
+
+---
+
 

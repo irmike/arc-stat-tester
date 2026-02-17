@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useCallback, useRef, useState} from "react";
 import Node from "../Node/Node.jsx";
 import "./TreeSection.css";
 
@@ -10,6 +10,34 @@ const directionToFlex = {
 
 function TreeSection ({name, direction, data, pointFuncts}) {
     const [total, setTotal] = useState(0);
+    const nodeLocksRef = useRef({});
+
+    // Find the first node's name for this section
+    const firstNodeName = data[0]?.[0]?.name;
+
+    const registerLockSetter = useCallback((nodeName, setter) => {
+        nodeLocksRef.current[nodeName] = setter;
+    }, []);
+
+    const unregisterLockSetter = useCallback((nodeName) => {
+        delete nodeLocksRef.current[nodeName];
+    }, []);
+
+    const unlockNodeByName = useCallback((nodeNameToUnlock) => {
+        const setter = nodeLocksRef.current[nodeNameToUnlock];
+        if (typeof setter === "function") {
+            setter(false);
+        }
+    }, []);
+
+    // Only lock if not the first node
+    const lockNodeByName = useCallback((nodeNameToLock) => {
+        if (nodeNameToLock === firstNodeName) return;
+        const setter = nodeLocksRef.current[nodeNameToLock];
+        if (typeof setter === "function") {
+            setter(true);
+        }
+    }, [firstNodeName]);
 
     const increaseTotal = () => {
         setTotal(prevTotal => prevTotal + 1);
@@ -23,7 +51,6 @@ function TreeSection ({name, direction, data, pointFuncts}) {
         }
     };
 
-    // create the subsection with each node then create the branch in same iteration IF previous nodes were rendered
     return (
         <div className="tree-section" style={{flexDirection: directionToFlex[direction][0]}}>
             {data.map((subsection, subSectionIndex) => (
@@ -35,13 +62,15 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                     {subsection.map((nodeData, i) => (
                         <Node
                             key={nodeData.name ?? i}
-                            name={nodeData.name}
-                            description={nodeData.description}
-                            pointCap={nodeData.pointCap}
-                            image={nodeData.image}
+                            nodeData={nodeData}
                             increaseTotal={increaseTotal}
                             decreaseTotal={decreaseTotal}
                             points={pointFuncts["points"]}
+                            locked={nodeData.name !== firstNodeName}
+                            registerLockSetter={registerLockSetter}
+                            unregisterLockSetter={unregisterLockSetter}
+                            unlockNodeByName={unlockNodeByName}
+                            lockNodeByName={lockNodeByName}
                         />
                     ))}
                 </div>
@@ -54,6 +83,6 @@ function TreeSection ({name, direction, data, pointFuncts}) {
             </div>
         </div>
     );
-};
+}
 
 export default TreeSection;
