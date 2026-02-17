@@ -19,9 +19,11 @@
 ## TODO: 
 ### [x] Correct messy file structure
 ### [x] Adjust View so that app is zoomed out by default.
-### [ ] Add in tests and make future changes through PRs and run tests in PR checks.
+### [x-ish] Add in tests and make future changes through PRs and run tests in PR checks.
+### [ ] Fill out test coverage
 ### [ ] Add connection between nodes.
 ### [ ] Create branch layer between nodes to point to their connections.
 ### [ ] Make use of pointLock.
 ### [ ] Implement use of individual stat images.
+### [ ] stylize everything and make it look nice.
 
