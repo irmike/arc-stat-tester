@@ -64,7 +64,13 @@ function Node ({
                 onClick={e => { e.stopPropagation(); setIsDescOpen(!isDescOpen); }}
                 aria-label={`Open Description for ${name}`}
             >
-                <img src={image} className={"node-image node-" + name} alt={name} />
+                {image && (
+                    React.createElement(image, {
+                        className: "node-image node-" + name,
+                        alt: name,
+                        fill: "#213547"
+                    })
+                )}
             </button>
 
             <DescriptionModal isOpen={isDescOpen} onClose={() => setIsDescOpen(false)} anchorRef={buttonRef}>
