@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="50mm"
+   height="50mm"
+   viewBox="0 0 50 50"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="Crawl Before You Walk.svg"
+   inkscape:export-filename="circle50x50.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xml:space="preserve"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.0888418"
+     inkscape:cx="142.90216"
+     inkscape:cy="157.26418"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" /><defs
+     id="defs2" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"><circle
+       style="fill:none;stroke:#ffffff;stroke-width:1.119;stroke-opacity:1"
+       id="path362"
+       cx="25"
+       cy="25"
+       r="22.928829" /><path
+       style="fill:#ffffff;stroke-width:0.39399;fill-opacity:1"
+       d="M 18.839758,31.487939 C 15.533512,28.133725 12.828402,25.325 12.828402,25.246327 c 0,-0.09314 0.94039,-0.143042 2.695871,-0.143042 h 2.695872 l 1.637159,2.918809 c 0.900437,1.605345 1.674557,2.918809 1.720266,2.918809 0.04571,0 0.856506,-1.751286 1.801772,-3.891745 0.945265,-2.14046 1.758403,-3.891746 1.806972,-3.891746 0.04857,0 0.617007,1.063281 1.263196,2.362846 0.646189,1.299565 1.207631,2.358796 1.247651,2.353847 0.04002,-0.0049 0.637542,-0.739864 1.327828,-1.633143 l 1.255066,-1.624145 3.644363,-0.03705 c 2.140428,-0.02176 3.644364,0.01547 3.644364,0.09023 0,0.07001 -0.383883,0.555775 -0.853072,1.079487 -1.150042,1.283684 -11.668263,11.86639 -11.777803,11.850011 -0.04774,-0.0071 -2.791903,-2.757335 -6.098149,-6.111549 z M 20.546374,23.50489 19.90238,22.323467 h -4.223741 c -2.964429,0 -4.252389,-0.04635 -4.319829,-0.155474 -0.224004,-0.362447 -0.224073,-2.566627 -1.09e-4,-3.518804 0.636646,-2.70669 2.638303,-4.930684 5.282048,-5.86876 2.414345,-0.856679 5.685682,-0.222334 7.616029,1.476826 0.350346,0.308387 0.686964,0.560704 0.748039,0.560704 0.06107,0 0.301661,-0.183597 0.534635,-0.407993 0.635227,-0.611836 1.978505,-1.37297 2.994921,-1.696993 1.252712,-0.399351 3.333989,-0.399351 4.5867,0 1.721583,0.548823 3.507952,1.897803 4.448794,3.359515 0.680987,1.057996 1.125016,2.438378 1.210932,3.764504 0.04278,0.660376 0.03657,1.364896 -0.0138,1.565598 l -0.09159,0.364914 -4.896781,9.45e-4 -4.896782,9.46e-4 -0.340034,0.499219 -0.340033,0.49922 -1.587023,-3.171644 -1.587023,-3.171644 -0.373031,0.829845 c -0.205168,0.456415 -1.026732,2.313736 -1.825698,4.127381 -0.798966,1.813645 -1.49451,3.29911 -1.545653,3.301034 -0.05114,0.0019 -0.382785,-0.528142 -0.736981,-1.177924 z"
+       id="path1" /></g></svg>

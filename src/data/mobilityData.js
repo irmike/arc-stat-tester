@@ -1,4 +1,18 @@
-import circleNode from '../assets/images/circle50x50.png'
+import nimbleClimber from '../assets/images/mobility/Nimble Climber.svg?react';
+import marathonRunner from '../assets/images/mobility/Marathon Runner.svg?react';
+import slipAndSlide from '../assets/images/mobility/Slip and Slide.svg?react';
+import youthfulLungs from '../assets/images/mobility/Youthful Lungs.svg?react';
+import sturdyAnkles from '../assets/images/mobility/Sturdy Ankles.svg?react';
+import carryTheMomentum from '../assets/images/mobility/Carry The Momentum.svg?react';
+import calmingStroll from '../assets/images/mobility/Calming Stroll.svg?react';
+import effortlessRoll from '../assets/images/mobility/Effortless Roll.svg?react';
+import crawlBeforeYouWalk from '../assets/images/mobility/Crawl Before You Walk.svg?react';
+import offTheWall from '../assets/images/mobility/Off The Wall.svg?react';
+import heroicLeap from '../assets/images/mobility/Heroic Leap.svg?react';
+import vigorousVaulter from '../assets/images/mobility/Vigorous Vaulter.svg?react';
+import readyToRoll from '../assets/images/mobility/Ready To Roll.svg?react';
+import vaultsOnVaultsOnVaults from '../assets/images/mobility/Vaults on Vaults on Vaults.svg?react';
+import vaultSpring from '../assets/images/mobility/Vault Spring.svg?react'
 
 const mobility = [
     // subsection
@@ -10,7 +24,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Marathon Runner", "Slip and Slide"],
-            image: circleNode
+            image: nimbleClimber
         }
     ],
     // subsection
@@ -22,7 +36,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Youthful Lungs"],
-            image: circleNode
+            image: marathonRunner
         },
         // node
         {
@@ -31,7 +45,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Sturdy Ankles"],
-            image: circleNode
+            image: slipAndSlide
         }
     ],
     [
@@ -41,7 +55,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Carry The Momentum"],
-            image: circleNode
+            image: youthfulLungs
         },
         {
             name: "Sturdy Ankles",
@@ -49,7 +63,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Calming Stroll"],
-            image: circleNode
+            image: sturdyAnkles
         }
     ],
     [
@@ -59,7 +73,7 @@ const mobility = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["Effortless Roll", "Crawl Before You Walk"],
-            image: circleNode
+            image: carryTheMomentum
         },
         {
             name: "Calming Stroll",
@@ -67,7 +81,7 @@ const mobility = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["Crawl Before You Walk", "Off The Wall"],
-            image: circleNode
+            image: calmingStroll
         }
     ],
     [
@@ -77,7 +91,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Heroic Leap"],
-            image: circleNode
+            image: effortlessRoll
         },
         {
             name: "Crawl Before You Walk",
@@ -85,7 +99,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["vigorous Vaulter"],
-            image: circleNode
+            image: crawlBeforeYouWalk
         },
         {
             name: "Off The Wall",
@@ -93,7 +107,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Ready To Roll"],
-            image: circleNode
+            image: offTheWall
         }
     ],
     [
@@ -103,7 +117,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Vaults on Vaults on Vaults"],
-            image: circleNode
+            image: heroicLeap
         },
         {
             name: "Vigorous Vaulter",
@@ -111,7 +125,7 @@ const mobility = [
             pointCap: 1,
             pointLock: 0,
             unlocks: ["Vaults on Vaults on Vaults","Vault Spring"],
-            image: circleNode
+            image: vigorousVaulter
         },
         {
             name: "Ready To Roll",
@@ -119,7 +133,7 @@ const mobility = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Vault Spring"],
-            image: circleNode
+            image: readyToRoll
         }
     ],
     [
@@ -129,7 +143,7 @@ const mobility = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: vaultsOnVaultsOnVaults
         },
         {
             name: "Vault Spring",
@@ -137,7 +151,7 @@ const mobility = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: vaultSpring
         }
     ]
 ]

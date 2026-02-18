@@ -1,4 +1,18 @@
-import circleNode from '../assets/images/circle50x50.png'
+import usedToTheWeight from '../assets/images/conditioning/Used To The Weight.svg?react';
+import blastBorn from '../assets/images/conditioning/Blast-Born.svg?react';
+import gentlePressure from '../assets/images/conditioning/Gentle Pressure.svg?react';
+import fightOrFlight from '../assets/images/conditioning/Fight Or Flight.svg?react';
+import proficientPryer from '../assets/images/conditioning/Proficient Pryer.svg?react';
+import survivorsStamina from "../assets/images/conditioning/Survivor's Stamina.svg?react";
+import unburdenedRoll from '../assets/images/conditioning/Unburdened Roll.svg?react';
+import downedButDetermined from '../assets/images/conditioning/Downed But Determined.svg?react';
+import aLittleExtra from '../assets/images/conditioning/A Little Extra.svg?react';
+import effortlessSwing from '../assets/images/conditioning/Effortless Swing.svg?react';
+import turtleCrawl from '../assets/images/conditioning/Turtle Crawl.svg?react';
+import loadedArms from '../assets/images/conditioning/Loaded Arms.svg?react';
+import skyClearingSwing from '../assets/images/conditioning/Sky-Clearing Swing.svg?react';
+import backOnYourFeet from '../assets/images/conditioning/Back On Your Feet.svg?react';
+import flyswatter from '../assets/images/conditioning/Flyswatter.svg?react'
 
 const conditioning = [
     // subsection
@@ -10,7 +24,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Blast-Born", "Gentle Pressure"],
-            image: circleNode
+            image: usedToTheWeight
         }
     ],
     // subsection
@@ -22,7 +36,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Fight Or Flight"],
-            image: circleNode
+            image: blastBorn
         },
         // node
         {
@@ -31,7 +45,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Proficient Pryer"],
-            image: circleNode
+            image: gentlePressure
         }
     ],
     [
@@ -41,7 +55,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Survivor's Stamina"],
-            image: circleNode
+            image: fightOrFlight
         },
         {
             name: "Proficient Pryer",
@@ -49,7 +63,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Unburdened Roll"],
-            image: circleNode
+            image: proficientPryer
         }
     ],
     [
@@ -59,7 +73,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["Downed But Determined", "A Little Extra"],
-            image: circleNode
+            image: survivorsStamina
         },
         {
             name: "Unburdened Roll",
@@ -67,7 +81,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["A Little Extra", "Effortless Swing"],
-            image: circleNode
+            image: unburdenedRoll
         }
     ],
     [
@@ -77,7 +91,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Turtle Crawl"],
-            image: circleNode
+            image: downedButDetermined
         },
         {
             name: "A Little Extra",
@@ -85,7 +99,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 0,
             unlocks: ["Loaded Arms"],
-            image: circleNode
+            image: aLittleExtra
         },
         {
             name: "Effortless Swing",
@@ -93,7 +107,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Sky-Clearing Swing"],
-            image: circleNode
+            image: effortlessSwing
         }
     ],
     [
@@ -103,7 +117,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Back On Your Feet"],
-            image: circleNode
+            image: turtleCrawl
         },
         {
             name: "Loaded Arms",
@@ -111,7 +125,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 0,
             unlocks: ["Back On Your Feet", "Flyswatter"],
-            image: circleNode
+            image: loadedArms
         },
         {
             name: "Sky-Clearing Swing",
@@ -119,7 +133,7 @@ const conditioning = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Flyswatter"],
-            image: circleNode
+            image: skyClearingSwing
         }
     ],
     [
@@ -129,7 +143,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: backOnYourFeet
         },
         {
             name: "Flyswatter",
@@ -137,7 +151,7 @@ const conditioning = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: flyswatter
         }
     ]
 ]
