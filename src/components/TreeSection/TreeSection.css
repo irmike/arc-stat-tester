@@ -2,19 +2,19 @@
   display: flex;
 }
 
-.tree-section__row {
+.tree-section-row {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.tree-section__summary {
+.tree-section-summary {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.tree-section__summary-inner {
+.tree-section-summary-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
