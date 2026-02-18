@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import DummyImage from './dummyImage.jsx';
+import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 // Mock the data modules to use dummy data
 vi.mock('../../data/mobilityData.js', function() {

@@ -127,7 +127,8 @@ npm test
 - [x] Add connection between nodes
 - [ ] Create branch layer between nodes to point to their connections
 - [ ] Make use of pointLock
-- [ ] Implement use of individual stat images
+- [x] Implement use of individual stat images
+- [x] Add coloring based on stat type
 - [ ] Stylize everything and make it look nice
 - [ ] Fix issue with description modal flickering
 - [ ] Move touch and mouse controls in app to a dedicated location

@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Node from './Node';
-import DummyImage from '../Tree/dummyImage.jsx';
+import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 describe('Node Component', () => {
   const nodeData = {

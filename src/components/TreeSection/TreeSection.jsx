@@ -84,8 +84,8 @@ function TreeSection ({name, direction, data, pointFuncts}) {
             ))}
             <div className="tree-section__summary" style={{flexDirection: directionToFlex[direction][1]}}>
                 <div className="tree-section__summary-inner">
-                    <h2>{name.toUpperCase()}</h2>
-                    <h2>{total}</h2>
+                    <h1 style={{ color: highlight }}>{name.toUpperCase()}</h1>
+                    <h1 style={{ color: highlight }}>{total}</h1>
                 </div>
             </div>
         </div>

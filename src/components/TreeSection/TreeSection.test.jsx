@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import TreeSection from './TreeSection';
-import DummyImage from '../Tree/dummyImage.jsx';
+import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 describe('TreeSection Component', () => {
   const mockData = [
