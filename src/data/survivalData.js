@@ -1,4 +1,18 @@
-import circleNode from '../assets/images/circle50x50.png'
+import agileCroucher from '../assets/images/survival/Agile Croucher.svg?react';
+import lootersInstincts from '../assets/images/survival/Looter’s Instincts.svg?react';
+import revitalizingSquat from '../assets/images/survival/Revitalizing Squat.svg?react';
+import silentScavenger from '../assets/images/survival/Silent Scavenger.svg?react';
+import inRoundCrafting from '../assets/images/survival/In-round Crafting.svg?react';
+import sufferInSilence from '../assets/images/survival/Suffer In Silence.svg?react';
+import goodAsNew from '../assets/images/survival/Good As New.svg?react';
+import broadShoulders from '../assets/images/survival/Broad Shoulders.svg?react';
+import travelingTinkerer from '../assets/images/survival/Traveling Tinkerer.svg?react';
+import stubbornMule from '../assets/images/survival/Stubborn Mule.svg?react';
+import lootersLuck from '../assets/images/survival/Looter’s Luck.svg?react';
+import oneRaidersScraps from '../assets/images/survival/One Raider’s Scraps.svg?react';
+import threeDeepBreaths from '../assets/images/survival/Three Deep Breaths.svg?react';
+import securityBreach from '../assets/images/survival/Security Breach.svg?react';
+import minesweeper from '../assets/images/survival/Minesweeper.svg?react'
 
 const survival = [
     // subsection
@@ -10,7 +24,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Looter's Instincts", "Revitalizing Squat"],
-            image: circleNode
+            image: agileCroucher
         }
     ],
     // subsection
@@ -22,7 +36,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Silent Scavenger"],
-            image: circleNode
+            image: lootersInstincts
         },
         // node
         {
@@ -31,7 +45,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["In-round Crafting"],
-            image: circleNode
+            image: revitalizingSquat
         }
     ],
     [
@@ -41,7 +55,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Suffer In Silence"],
-            image: circleNode
+            image: silentScavenger
         },
         {
             name: "In-round Crafting",
@@ -49,7 +63,7 @@ const survival = [
             pointCap: 1,
             pointLock: 0,
             unlocks: ["Good As New"],
-            image: circleNode
+            image: inRoundCrafting
         }
     ],
     [
@@ -59,7 +73,7 @@ const survival = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["Broad Shoulders", "Traveling Tinkerer"],
-            image: circleNode
+            image: sufferInSilence
         },
         {
             name: "Good As New",
@@ -67,7 +81,7 @@ const survival = [
             pointCap: 1,
             pointLock: 15,
             unlocks: ["Traveling Tinkerer", "Stubborn Mule"],
-            image: circleNode
+            image: goodAsNew
         }
     ],
     [
@@ -77,7 +91,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Looter's Luck"],
-            image: circleNode
+            image: broadShoulders
         },
         {
             name: "Traveling Tinkerer",
@@ -85,7 +99,7 @@ const survival = [
             pointCap: 1,
             pointLock: 0,
             unlocks: ["One Raider's Scraps"],
-            image: circleNode
+            image: travelingTinkerer
         },
         {
             name: "Stubborn Mule",
@@ -93,7 +107,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Three Deep Breaths"],
-            image: circleNode
+            image: stubbornMule
         }
     ],
     [
@@ -103,7 +117,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Security Breach"],
-            image: circleNode
+            image: lootersLuck
         },
         {
             name: "One Raider's Scraps",
@@ -111,7 +125,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Security Breach", "Minesweeper"],
-            image: circleNode
+            image: oneRaidersScraps
         },
         {
             name: "Three Deep Breaths",
@@ -119,7 +133,7 @@ const survival = [
             pointCap: 5,
             pointLock: 0,
             unlocks: ["Minesweeper"],
-            image: circleNode
+            image: threeDeepBreaths
         }
     ],
     [
@@ -129,7 +143,7 @@ const survival = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: securityBreach
         },
         {
             name: "Minesweeper",
@@ -137,7 +151,7 @@ const survival = [
             pointCap: 1,
             pointLock: 36,
             unlocks: [],
-            image: circleNode
+            image: minesweeper
         }
     ]
 ]

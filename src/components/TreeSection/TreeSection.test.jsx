@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import TreeSection from './TreeSection';
+import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 describe('TreeSection Component', () => {
   const mockData = [
@@ -9,13 +10,13 @@ describe('TreeSection Component', () => {
         name: 'Node1',
         description: 'Test node 1',
         pointCap: 3,
-        image: '/test.png',
+        image: DummyImage,
       },
       {
         name: 'Node2',
         description: 'Test node 2',
         pointCap: 2,
-        image: '/test.png',
+        image: DummyImage,
       },
     ],
   ];
@@ -47,8 +48,7 @@ describe('TreeSection Component', () => {
         pointFuncts={mockPointFuncts}
       />
     );
-    expect(screen.getByAltText('Node1')).toBeInTheDocument();
-    expect(screen.getByAltText('Node2')).toBeInTheDocument();
+    expect(screen.getByLabelText('Open Description for Node1')).toBeInTheDocument();
+    expect(screen.getByLabelText('Open Description for Node2')).toBeInTheDocument();
   });
 });
-

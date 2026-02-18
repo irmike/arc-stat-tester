@@ -1,13 +1,14 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import Node from './Node';
+import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 describe('Node Component', () => {
   const nodeData = {
     name: 'TestNode',
     description: 'Test node description',
     pointCap: 3,
-    image: '/test-image.png',
+    image: DummyImage,
   };
 
   it('renders with initial count of 0', () => {

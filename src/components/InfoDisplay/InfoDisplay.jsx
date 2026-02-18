@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import './InfoDisplay.css';
 
 function InfoDisplay() {
@@ -18,9 +18,11 @@ function InfoDisplay() {
                 <div className="info-content">
                     <h2 className='info-title'>INFO</h2>
                     <p className='info-message'>
-                        This is a work in progress, so expect some bugs and a simple UI (for now). Please feel free to view the
-                        github repo and README for more details. I created this project to showcase and practice my abilities
-                        in react by replicating the functionality of the Skill Tree from the video game Arc Raiders. Thank you
+                        This is a work in progress, so expect some bugs. Please feel free to view the
+                        github repo and README for more details. I created this project to showcase and practice my
+                        abilities
+                        in react by replicating the functionality of the Skill Tree from the video game Arc Raiders.
+                        Thank you
                         for visiting!
                     </p>
                     <div>
