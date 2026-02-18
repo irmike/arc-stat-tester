@@ -13,12 +13,16 @@ function Node ({
     registerLockSetter,
     unregisterLockSetter,
     unlockNodeByName,
-    lockNodeByName
+    lockNodeByName,
+    highlight
 }) {
     const { name, description, pointCap, pointLock, unlocks = [], image } = nodeData;
     const [count, setCount] = useState(0);
     const [isDescOpen, setIsDescOpen] = useState(false);
     const buttonRef = useRef(null);
+
+    const defaultColor = "darkgray";
+    const [color, setColor] = useState(defaultColor);
 
     const [isLocked, setIsLocked] = useState(Boolean(locked || (pointLock > 0)));
 
@@ -27,6 +31,14 @@ function Node ({
         registerLockSetter(name, setIsLocked);
         return () => unregisterLockSetter(name);
     }, [name, registerLockSetter, unregisterLockSetter]);
+
+    useEffect(() => {
+        if (count > 0) {
+            setColor(highlight);
+        } else {
+            setColor(defaultColor);
+        }
+    }, [count, highlight]);
 
     const increaseCount = () => {
         // Only allow increment if unlocked
@@ -68,7 +80,7 @@ function Node ({
                     React.createElement(image, {
                         className: "node-image node-" + name,
                         alt: name,
-                        fill: "#213547"
+                        style: { color }
                     })
                 )}
             </button>

@@ -51,6 +51,12 @@ function TreeSection ({name, direction, data, pointFuncts}) {
         }
     };
 
+    // Determine highlight color based on section name
+    let highlight = "darkgray";
+    if (name === "Survival") highlight = "red";
+    else if (name === "Mobility") highlight = "goldenrod";
+    else if (name === "Conditioning") highlight = "limegreen";
+
     return (
         <div className="tree-section" style={{flexDirection: directionToFlex[direction][0]}}>
             {data.map((subsection, subSectionIndex) => (
@@ -71,6 +77,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                             unregisterLockSetter={unregisterLockSetter}
                             unlockNodeByName={unlockNodeByName}
                             lockNodeByName={lockNodeByName}
+                            highlight={highlight}
                         />
                     ))}
                 </div>
