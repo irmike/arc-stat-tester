@@ -131,7 +131,7 @@ npm test
 - [x] Add coloring based on stat type
 - [ ] Stylize everything and make it look nice
 - [ ] Fix issue with description modal flickering
-- [ ] Move touch and mouse controls in app to a dedicated location
+- [x] Move touch and mouse controls in app to a dedicated location
 
 ---
 

@@ -62,7 +62,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
             {data.map((subsection, subSectionIndex) => (
                 <div
                     key={subSectionIndex}
-                    className="tree-section__row"
+                    className="tree-section-row"
                     style={{flexDirection: directionToFlex[direction][1]}}
                 >
                     {subsection.map((nodeData, i) => (
@@ -82,10 +82,10 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                     ))}
                 </div>
             ))}
-            <div className="tree-section__summary" style={{flexDirection: directionToFlex[direction][1]}}>
-                <div className="tree-section__summary-inner">
-                    <h1 style={{ color: highlight }}>{name.toUpperCase()}</h1>
-                    <h1 style={{ color: highlight }}>{total}</h1>
+            <div className="tree-section-summary" style={{flexDirection: directionToFlex[direction][1]}}>
+                <div className="tree-section-summary-inner">
+                    <h2 style={{ color: highlight }}>{name.toUpperCase()}</h2>
+                    <h2 style={{ color: highlight }}>{total}</h2>
                 </div>
             </div>
         </div>

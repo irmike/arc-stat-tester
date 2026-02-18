@@ -42,13 +42,3 @@
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     max-width: 320px;
 }
-
-.desc-close {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    font-size: 14px;
-}
