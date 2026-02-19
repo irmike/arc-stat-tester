@@ -14,15 +14,18 @@ function Node ({
     unregisterLockSetter,
     unlockNodeByName,
     lockNodeByName,
-    highlight
+    highlight,
+    direction,
+    openNodeName,
+    setOpenNodeName
 }) {
     const { name, description, pointCap, pointLock, unlocks = [], image } = nodeData;
     const [count, setCount] = useState(0);
-    const [isDescOpen, setIsDescOpen] = useState(false);
     const buttonRef = useRef(null);
 
     const defaultColor = "darkgray";
-    const [color, setColor] = useState(defaultColor);
+    // Remove color state and useEffect. Compute color directly.
+    const color = count > 0 ? highlight : defaultColor;
 
     const [isLocked, setIsLocked] = useState(Boolean(locked || (pointLock > 0)));
 
@@ -32,13 +35,9 @@ function Node ({
         return () => unregisterLockSetter(name);
     }, [name, registerLockSetter, unregisterLockSetter]);
 
-    useEffect(() => {
-        if (count > 0) {
-            setColor(highlight);
-        } else {
-            setColor(defaultColor);
-        }
-    }, [count, highlight]);
+    // Remove local isDescOpen state
+    // Use openNodeName and setOpenNodeName from props
+    const isDescOpen = openNodeName === name;
 
     const increaseCount = () => {
         // Only allow increment if unlocked
@@ -73,7 +72,7 @@ function Node ({
             <button
                 ref={buttonRef}
                 className="node-image-button"
-                onClick={e => { e.stopPropagation(); setIsDescOpen(!isDescOpen); }}
+                onClick={e => { e.stopPropagation(); setOpenNodeName(isDescOpen ? null : name); }}
                 aria-label={`Open Description for ${name}`}
             >
                 {image && (
@@ -85,7 +84,14 @@ function Node ({
                 )}
             </button>
 
-            <DescriptionModal isOpen={isDescOpen} onClose={() => setIsDescOpen(false)} anchorRef={buttonRef}>
+            <DescriptionModal
+                isOpen={true}
+                visible={isDescOpen}
+                onClose={() => setOpenNodeName(null)}
+                anchorRef={buttonRef}
+                direction={direction}
+                style={{ display: isDescOpen ? 'block' : 'none' }}
+            >
                 <h2>{name}</h2>
                 <p>{description}</p>
             </DescriptionModal>

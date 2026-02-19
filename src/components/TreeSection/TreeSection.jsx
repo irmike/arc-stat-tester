@@ -11,6 +11,7 @@ const directionToFlex = {
 function TreeSection ({name, direction, data, pointFuncts}) {
     const [total, setTotal] = useState(0);
     const nodeLocksRef = useRef({});
+    const [openNodeName, setOpenNodeName] = useState(null);
 
     // Find the first node's name for this section
     const firstNodeName = data[0]?.[0]?.name;
@@ -78,6 +79,9 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                             unlockNodeByName={unlockNodeByName}
                             lockNodeByName={lockNodeByName}
                             highlight={highlight}
+                            direction={direction}
+                            openNodeName={openNodeName}
+                            setOpenNodeName={setOpenNodeName}
                         />
                     ))}
                 </div>

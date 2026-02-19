@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './InfoDisplay.css';
 
 function InfoDisplay() {
-    const [isMinimized, setIsMinimized] = useState(false);
+    const [isMinimized, setIsMinimized] = useState(true); // Minimized by default
 
     return (
         <div className={`info-overlay ${isMinimized ? 'minimized' : ''}`}>
@@ -12,11 +12,13 @@ function InfoDisplay() {
                 onClick={() => setIsMinimized(prev => !prev)}
                 aria-label={isMinimized ? 'Open info panel' : 'Minimize info panel'}
             >
-                {isMinimized ? '+' : '-'}
+                {isMinimized ? 'INFO' : '-'}
             </button>
             {!isMinimized && (
                 <div className="info-content">
-                    <h2 className='info-title'>INFO</h2>
+                    <h2 className='info-title'>
+                        INFO
+                    </h2>
                     <p className='info-message'>
                         This is a work in progress, so expect some bugs. Please feel free to view the
                         github repo and README for more details. I created this project to showcase and practice my
