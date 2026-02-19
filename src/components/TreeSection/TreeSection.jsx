@@ -73,6 +73,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                             increaseTotal={increaseTotal}
                             decreaseTotal={decreaseTotal}
                             points={pointFuncts["points"]}
+                            total={total}
                             locked={nodeData.name !== firstNodeName}
                             registerLockSetter={registerLockSetter}
                             unregisterLockSetter={unregisterLockSetter}
