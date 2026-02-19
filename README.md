@@ -139,6 +139,7 @@ npx vitest run
 - [ ] Add a "Add Expeditions" button in the PointsHeader that adds up to 5 points for each expedition completed.
 - [ ] clean up some of the UI elements and standardize how they display better.
 - [ ] Create branch layer between nodes to point to their connections
+- [ ] Optimize display and modal appearance for mobile devices
 
 ---
 
