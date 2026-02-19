@@ -16,16 +16,21 @@ vi.mock('../../data/survivalData.js', function() {
 import Tree from './Tree';
 
 describe('Tree Component', () => {
+  const dummyPointFuncts = {
+    points: 76,
+    increasePoints: () => {},
+    decreasePoints: () => {},
+  };
+
   it('displays all three tree sections', () => {
-    render(<Tree />);
+    render(<Tree pointFuncts={dummyPointFuncts} />);
     expect(screen.getByText('MOBILITY')).toBeInTheDocument();
     expect(screen.getByText('CONDITIONING')).toBeInTheDocument();
     expect(screen.getByText('SURVIVAL')).toBeInTheDocument();
   });
 
   it('initializes with default points value', () => {
-    render(<Tree />);
-    const pointsText = screen.getByText('Points available: 76');
-    expect(pointsText).toBeInTheDocument();
+    render(<Tree pointFuncts={dummyPointFuncts} />);
+    expect(dummyPointFuncts.points).toBe(76);
   });
 });

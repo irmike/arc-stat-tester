@@ -5,20 +5,9 @@ import conditioning from "../../data/conditioningData.js";
 import survival from "../../data/survivalData.js";
 import "./Tree.css";
 
-function Tree() {
-    const defaultPoints = 76;
+function Tree({ pointFuncts }) {
     const sectLimit = '200px';
-
-    const [points, setPoints] = useState(defaultPoints);
     const [sideWidth, setSideWidth] = useState(null);
-
-    const increasePoints = useCallback(() => setPoints(p => p + 1), []);
-    const decreasePoints = useCallback(() => setPoints(p => Math.max(0, p - 1)), []);
-
-    const pointFuncts = useMemo(
-        () => ({points, increasePoints, decreasePoints}),
-        [points, increasePoints, decreasePoints]
-    );
 
     const leftRef = useRef(null);
     const rightRef = useRef(null);
@@ -41,9 +30,6 @@ function Tree() {
 
     return (
         <>
-            <div className="tree-header" style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', width: '80%'}}>
-                <h1> Points available: {points}</h1>
-            </div>
             <div className="tree-root">
                 <div className="tree-top" style={{maxWidth: sectLimit}}>
                     <TreeSection name="Mobility" direction="up" data={mobility} pointFuncts={pointFuncts}/>

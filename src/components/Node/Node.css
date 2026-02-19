@@ -33,12 +33,3 @@
     object-fit: cover;
     display: block;
 }
-
-.description-popover .description-content {
-    background: white;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    padding: 12px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    max-width: 320px;
-}
