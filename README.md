@@ -118,6 +118,10 @@ The app is deployed at: [https://irmike.github.io/arc-stat-tester/](https://irmi
 ```sh
 npm test
 ```
+or 
+```sh
+npx vitest run
+```
 - Tests are run automatically on pull requests.
 
 ---
@@ -125,13 +129,16 @@ npm test
 ## TODO
 - [x] Correct messy file structure
 - [x] Add connection between nodes
-- [ ] Create branch layer between nodes to point to their connections
-- [ ] Make use of pointLock
+- [x] Make use of pointLock
 - [x] Implement use of individual stat images
 - [x] Add coloring based on stat type
-- [ ] Stylize everything and make it look nice
-- [ ] Fix issue with description modal flickering
+- [x] Stylize everything and make it look nice
 - [x] Move touch and mouse controls in app to a dedicated location
+- [x] Fix issue with description modal flickering
+- [ ] Add a Reset Points button in the PointsHeader
+- [ ] Add a "Add Expeditions" button in the PointsHeader that adds up to 5 points for each expedition completed.
+- [ ] clean up some of the UI elements and standardize how they display better.
+- [ ] Create branch layer between nodes to point to their connections
 
 ---
 

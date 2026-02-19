@@ -1,49 +1,57 @@
-import React from "react";
-import {useEffect, useState, useRef} from "react";
+import {useEffect, useState, useRef, createElement} from "react";
 import DescriptionModal from "../DescriptionModal/DescriptionModal.jsx";
+import ErrorModal from '../ErrorModal/ErrorModal.jsx';
 import "./Node.css";
-
 
 function Node ({
     nodeData,
     increaseTotal,
     decreaseTotal,
     points,
+    total,
     locked,
     registerLockSetter,
     unregisterLockSetter,
     unlockNodeByName,
     lockNodeByName,
     highlight,
-    direction,
     openNodeName,
     setOpenNodeName
 }) {
-    const { name, description, pointCap, pointLock, unlocks = [], image } = nodeData;
-    const [count, setCount] = useState(0);
+    // Destructure node data
+    const { name, description, pointCap, pointLock, unlocks = [], image} = nodeData;
+
+    // Refs
     const buttonRef = useRef(null);
 
+    // States
+    const [count, setCount] = useState(0);
+    const [isLocked, setIsLocked] = useState(Boolean(locked || (pointLock > 0)));
+    const [errorVisible, setErrorVisible] = useState(false);
+
+    // Derived values
+    const isDescOpen = openNodeName === name;
     const defaultColor = "darkgray";
-    // Remove color state and useEffect. Compute color directly.
     const color = count > 0 ? highlight : defaultColor;
 
-    const [isLocked, setIsLocked] = useState(Boolean(locked || (pointLock > 0)));
-
+    // Register/unregister lock setter
     useEffect(() => {
         if (!registerLockSetter || !unregisterLockSetter) return;
         registerLockSetter(name, setIsLocked);
         return () => unregisterLockSetter(name);
     }, [name, registerLockSetter, unregisterLockSetter]);
 
-    // Remove local isDescOpen state
-    // Use openNodeName and setOpenNodeName from props
-    const isDescOpen = openNodeName === name;
-
+    // Handlers
     const increaseCount = () => {
-        // Only allow increment if unlocked
+        // Only increment if unlocked
         if (isLocked || points <= 0 || count >= pointCap) return;
 
-        // If this click will make count go from 0 -> 1, unlock targets
+        // only add if pointLock conditions are met, otherwise show error
+        if (total < pointLock) {
+            setErrorVisible(true);
+            return;
+        }
+
         if (count === 0) {
             for (const unlockName of unlocks) {
                 unlockNodeByName?.(unlockName);
@@ -68,7 +76,7 @@ function Node ({
     };
 
     return (
-        <div className="node-root">
+        <div className={`node-root${pointLock > 0 ? " node-large" : ""}`}>
             <button
                 ref={buttonRef}
                 className="node-image-button"
@@ -76,8 +84,8 @@ function Node ({
                 aria-label={`Open Description for ${name}`}
             >
                 {image && (
-                    React.createElement(image, {
-                        className: "node-image node-" + name,
+                    createElement(image, {
+                        className: `node-image${pointLock > 0 ? " image-large" : ""} node-${name}`,
                         alt: name,
                         style: { color }
                     })
@@ -85,16 +93,21 @@ function Node ({
             </button>
 
             <DescriptionModal
-                isOpen={true}
                 visible={isDescOpen}
                 onClose={() => setOpenNodeName(null)}
                 anchorRef={buttonRef}
-                direction={direction}
-                style={{ display: isDescOpen ? 'block' : 'none' }}
             >
                 <h2>{name}</h2>
                 <p>{description}</p>
             </DescriptionModal>
+
+            <ErrorModal
+                visible={errorVisible}
+                anchorRef={buttonRef}
+                onHide={() => setErrorVisible(false)}
+            >
+                <p>You need at least {pointLock} total points in this section to unlock this node.</p>
+            </ErrorModal>
 
             <div className="stat-display">
                 { !isLocked && (

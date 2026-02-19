@@ -1,36 +1,24 @@
-import React, { useLayoutEffect, useState } from "react";
-import {createPortal} from "react-dom";
+import { useState } from "react";
 import "./DescriptionModal.css";
+import useAnchorPosition from "../../hooks/useAnchorPosition.jsx";
+import PortalPopover from "../common/PortalPopover.jsx";
 
-function DescriptionModal({ visible, onClose, children, anchorRef, style }) {
+function DescriptionModal({ visible, onClose, children, anchorRef }) {
     const [pos, setPos] = useState({ top: 0, left: 0 });
 
-    useLayoutEffect(() => {
-        if (visible && anchorRef?.current) {
-            const rect = anchorRef.current.getBoundingClientRect();
-            setPos({
-                top: rect.top + window.scrollY + 8,
-                left: rect.right + window.scrollX + rect.width / 2
-            });
-        }
-    }, [visible, anchorRef]);
+    useAnchorPosition(visible, anchorRef, setPos);
 
-    // Always render, but hide/show with style
-    return createPortal(
-        <div className="description-popover"
-             style={{
-                 position: "absolute",
-                 top: pos.top,
-                 left: pos.left,
-                 zIndex: 1000,
-                 ...style
-             }}>
-            <div className="description-content" role="dialog" aria-modal="false">
-                <button className="description-close" onClick={onClose} aria-label="Close description">✕</button>
-                {children}
-            </div>
-        </div>,
-        document.body
+    return (
+        <PortalPopover
+            visible={visible}
+            pos={pos}
+            popUpClassName="description-popover"
+            contentClassName="description-content"
+            buttonClassName="description-close"
+            onClose={onClose}
+        >
+            {children}
+        </PortalPopover>
     );
 }
 
