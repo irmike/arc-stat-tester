@@ -25,11 +25,16 @@ function App() {
         [points, increasePoints, decreasePoints]
     );
 
+    // Expeditions logic
+    const handleExpeditionsTotalChange = (expeditionsTotal) => {
+        setPoints(defaultPoints + expeditionsTotal);
+    };
+
     return (
         <>
-            <PointsHeader points={points} />
             <div className={`App ${isDragging ? 'dragging' : ''}`} ref={containerRef}>
                 <div className="tree-wrapper">
+                    <PointsHeader points={points} onExpeditionsTotalChange={handleExpeditionsTotalChange} />
                     {/* apply scale and pan via CSS variables */}
                     <div
                         ref={treeInnerRef}

@@ -1,5 +1,11 @@
+.points-header-root {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+}
+
 .points-header {
-    position: fixed;
     top: 12px;
     left: 12px;
     z-index: 1001;
@@ -10,4 +16,3 @@
     font-size: 1.2rem;
     margin: 0;
 }
-
