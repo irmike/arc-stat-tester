@@ -1,8 +1,12 @@
 .points-header-root {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     justify-content: left;
     align-items: center;
+    box-shadow: none;
+    width: 100%;
+    gap: 12px;
 }
 
 .points-header {

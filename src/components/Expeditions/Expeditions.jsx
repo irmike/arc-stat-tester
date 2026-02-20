@@ -2,7 +2,7 @@ import React from "react";
 
 function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
     return (
-        <div className="expeditions-root" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '12px' }}>
+        <div className="expeditions-root" style={{ display: 'flex', flexWrap:'wrap', flexDirection: 'row', alignItems: 'center', gap: '12px' }}>
             <button
                 className="expeditions-add"
                 onClick={onAdd}
