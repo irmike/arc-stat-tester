@@ -98,7 +98,7 @@ const mobility = [
             description: "When you're downed, you crawl faster.",
             pointCap: 5,
             pointLock: 0,
-            unlocks: ["vigorous Vaulter"],
+            unlocks: ["Vigorous Vaulter"],
             image: crawlBeforeYouWalk
         },
         {
