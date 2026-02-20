@@ -6,7 +6,11 @@
     align-items: center;
     box-shadow: none;
     width: 100%;
+    max-width: 85vw;
+    margin-right: 2vw;
     gap: 12px;
+    box-sizing: border-box;
+    overflow-x: auto;
 }
 
 .points-header {
@@ -19,4 +23,15 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     font-size: 1.2rem;
     margin: 0;
+}
+
+@media (max-width: 600px) {
+  .points-header-root {
+    gap: 6px;
+    padding: 0.25rem 0.5rem;
+  }
+  .points-header {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+  }
 }

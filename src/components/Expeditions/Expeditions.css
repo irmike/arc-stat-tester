@@ -1,0 +1,54 @@
+.expeditions-root {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.expeditions-add {
+  /* Add any custom styles for the add button here */
+}
+
+.expedition-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.expedition-item input {
+  width: 40px;
+  margin-right: 4px;
+}
+
+.expedition-remove {
+  background: red;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+
+@media (max-width: 600px) {
+  .expeditions-root {
+    gap: 6px;
+  }
+  .expedition-item {
+    gap: 2px;
+    font-size: 0.75rem;
+  }
+  .expedition-item input {
+    width: 20px;
+    font-size: 0.7rem;
+    margin-right: 2px;
+  }
+  .expedition-remove {
+    padding: 1px 5px;
+    font-size: 0.7rem;
+  }
+  .expeditions-add {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+  }
+}

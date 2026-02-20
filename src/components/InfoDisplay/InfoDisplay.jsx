@@ -22,10 +22,8 @@ function InfoDisplay() {
                     <p className='info-message'>
                         This is a work in progress, so expect some bugs. Please feel free to view the
                         github repo and README for more details. I created this project to showcase and practice my
-                        abilities
-                        in react by replicating the functionality of the Skill Tree from the video game Arc Raiders.
-                        Thank you
-                        for visiting!
+                        abilities in react by replicating the functionality of the Skill Tree from the video game
+                        Arc Raiders. Thank you for visiting!
                     </p>
                     <div>
                         <h2 className='info-title'>

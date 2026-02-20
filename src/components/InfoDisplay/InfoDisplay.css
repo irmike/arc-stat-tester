@@ -16,8 +16,9 @@
 }
 
 .info-overlay.minimized {
-    width: 60px;
-    height: 50px;
+    width: 45px;
+    border-color: transparent;
+    height: 35px;
     padding: 0;
     overflow: hidden;
     display: flex;
@@ -62,4 +63,17 @@
     margin-bottom: 0;
     color: black;
     font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  .info-overlay {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+    max-width: 220px;
+  }
+  .info-overlay.minimized {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
 }

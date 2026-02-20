@@ -1,8 +1,9 @@
 import React from "react";
+import "./Expeditions.css";
 
 function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
     return (
-        <div className="expeditions-root" style={{ display: 'flex', flexWrap:'wrap', flexDirection: 'row', alignItems: 'center', gap: '12px' }}>
+        <div className="expeditions-root">
             <button
                 className="expeditions-add"
                 onClick={onAdd}
@@ -11,22 +12,21 @@ function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
                 Add Expedition
             </button>
             {expeditions.map((value, idx) => (
-                <div key={idx} className="expedition-item" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div key={idx} className="expedition-item">
                     <span>{`Exp. ${idx + 1}`}</span>
                     <input
                         type="number"
                         min={0}
                         max={5}
-                        value={value}
+                        value={value === 0 ? "" : value}
                         onChange={e => {
-                            let v = parseInt(e.target.value, 10);
+                            const inputValue = e.target.value;
+                            let v = inputValue === "" ? 0 : parseInt(inputValue, 10);
                             onChange(idx, v);
                         }}
-                        style={{ width: '40px', marginRight: '4px' }}
                     />
                     <button
                         className="expedition-remove"
-                        style={{ background: 'red', color: 'black', fontWeight: 'bold', border: 'none', borderRadius: '4px', padding: '2px 8px' }}
                         onClick={() => onRemove(idx)}
                     >
                         x
@@ -38,4 +38,3 @@ function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
 }
 
 export default Expeditions;
-
