@@ -1,3 +1,10 @@
+/*
+ * DescriptionModal.jsx - Displays a modal with node details and positions it near the anchor.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import { useState } from "react";
 import "./DescriptionModal.css";
 import useAnchorPosition from "../../hooks/useAnchorPosition.jsx";

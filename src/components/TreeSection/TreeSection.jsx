@@ -1,3 +1,10 @@
+/*
+ * TreeSection.jsx - Renders a section of the skill tree with its nodes and logic.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import {useCallback, useRef, useState} from "react";
 import Node from "../Node/Node.jsx";
 import "./TreeSection.css";
@@ -25,6 +32,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
     }, []);
 
     const unlockNodeByName = useCallback((nodeNameToUnlock) => {
+        // Tree code by M i c ha e l C r o w l e y
         const setter = nodeLocksRef.current[nodeNameToUnlock];
         if (typeof setter === "function") {
             setter(false);

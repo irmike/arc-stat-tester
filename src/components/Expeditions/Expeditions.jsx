@@ -1,3 +1,10 @@
+/*
+ * Expeditions.jsx - Manages expedition input fields and their logic.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import React from "react";
 import "./Expeditions.css";
 

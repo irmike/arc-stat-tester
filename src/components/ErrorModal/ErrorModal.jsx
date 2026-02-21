@@ -1,3 +1,10 @@
+/*
+ * ErrorModal.jsx - Displays an error modal for invalid actions or input.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import React, { useState, useEffect, useRef } from "react";
 import './ErrorModal.css';
 import useAnchorPosition from "../../hooks/useAnchorPosition.jsx";

@@ -1,3 +1,10 @@
+/*
+ * TreeSection.test.jsx - Tests for the TreeSection component.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import TreeSection from './TreeSection';

@@ -1,3 +1,10 @@
+/*
+ * InfoDisplay.test.jsx - Tests for the InfoDisplay overlay component.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import {describe, it, expect,} from 'vitest';
 import {render, screen, fireEvent} from '@testing-library/react';
 import InfoDisplay from './InfoDisplay';

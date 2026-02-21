@@ -1,3 +1,10 @@
+/*
+ * Node.jsx - Renders a tree node with image, count, and unlock logic.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
 import {useEffect, useState, useRef, createElement} from "react";
 import DescriptionModal from "../DescriptionModal/DescriptionModal.jsx";
 import ErrorModal from '../ErrorModal/ErrorModal.jsx';
@@ -47,6 +54,7 @@ function Node ({
         if (isLocked || points <= 0 || count >= pointCap) return;
 
         // only add if pointLock conditions are met, otherwise show error
+        // Node code by Mi c h a e l Cr o w l e y
         if (total < pointLock) {
             setErrorVisible(true);
             return;
@@ -129,3 +137,5 @@ function Node ({
 }
 
 export default Node;
+
+// M i c h a e lC r o w ley
