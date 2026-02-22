@@ -28,9 +28,6 @@ function PointsHeader({ points, onExpeditionsTotalChange }) {
     };
 
     const handleChange = (idx, value) => {
-        if (isNaN(value) || value < 0 || value > 5){
-            return;
-        }
         const newExpeditions = expeditions.map((v, i) => (i === idx ? value : v));
         setExpeditions(newExpeditions);
         onExpeditionsTotalChange(newExpeditions.reduce((sum, v) => sum + v, 0));

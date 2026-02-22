@@ -25,17 +25,17 @@
   border: none;
   background: black;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 @media (max-width: 600px) {
   .modal-content {
     padding: 0.25rem 0.5rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     max-width: 220px;
   }
   .modal-close {
-    font-size: 9px;
+    font-size: 8px;
     top: 4px;
     right: 4px;
   }
