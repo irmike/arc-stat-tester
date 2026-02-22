@@ -5,6 +5,11 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
+:root {
+  --tree-section-gap: 12px;
+  --tree-section-summary-padding: 8px;
+}
+
 .tree-section {
   display: flex;
 }
@@ -13,12 +18,14 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: var(--tree-section-gap);
 }
 
 .tree-section-summary {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--tree-section-summary-padding);
 }
 
 .tree-section-summary-inner {

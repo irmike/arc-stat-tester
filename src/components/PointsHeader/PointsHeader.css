@@ -5,6 +5,12 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
+
+:root {
+  --points-header-gap: 12px;
+  --points-header-padding: 0.5rem 1rem;
+}
+
 .points-header-root {
     display: flex;
     flex-wrap: wrap;
@@ -15,7 +21,7 @@
     width: 100%;
     max-width: 85vw;
     margin-right: 2vw;
-    gap: 12px;
+    gap: var(--points-header-gap);
     box-sizing: border-box;
     overflow-x: auto;
 }
@@ -25,7 +31,7 @@
     left: 12px;
     z-index: 1001;
     background: none;
-    padding: 0.5rem 1rem;
+    padding: var(--points-header-padding);
     border-radius: 8px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     font-size: 1.2rem;

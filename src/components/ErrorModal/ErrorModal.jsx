@@ -1,11 +1,12 @@
 /*
  * ErrorModal.jsx - Displays an error modal for invalid actions or input.
+ * Not currently used - Node + and - buttons do not appear until pointlock is met.
  * Copyright (c) 2026 Michael Crowley. All rights reserved.
  * This file is part of the arc-stat-tester project.
  * Unauthorized copying or distribution is prohibited.
  */
 
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import './ErrorModal.css';
 import useAnchorPosition from "../../hooks/useAnchorPosition.jsx";
 import PortalPopover from "../common/PortalPopover.jsx";
@@ -36,9 +37,9 @@ const ErrorModal = ({ visible, anchorRef, onHide, children }) => {
             visible={visible}
             pos={pos}
             popUpClassName="error-modal-overlay"
-            contentClassName="error-content"
+            contentClassName="modal-content"
             popUpHeader="Error"
-            buttonClassName={"error-close"}
+            buttonClassName={"modal-close"}
             onClose={handleClose}
         >
             {children}
@@ -47,3 +48,20 @@ const ErrorModal = ({ visible, anchorRef, onHide, children }) => {
 }
 
 export default ErrorModal;
+
+// Example usage in Node.jsx. Note that the error modal is currently not used, as the + and - buttons do not appear
+// until the point lock is met. If you want to use it, you would need to adjust the logic to show the buttons but
+// disable them when point lock conditions are not met, and then show the error modal on click.
+//
+// const [errorVisible, setErrorVisible] = useState(false);
+//
+// if (total < pointLock) {setErrorVisible(true);
+// return;}
+//
+// <ErrorModal
+//     visible={errorVisible}
+//     anchorRef={buttonRef}
+//     onHide={() => setErrorVisible(false)}
+// >
+//     <p>You need at least {pointLock} total points in this section to unlock this node.</p>
+// </ErrorModal>

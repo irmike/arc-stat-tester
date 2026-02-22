@@ -20,8 +20,8 @@ function DescriptionModal({ visible, onClose, children, anchorRef }) {
             visible={visible}
             pos={pos}
             popUpClassName="description-popover"
-            contentClassName="description-content"
-            buttonClassName="description-close"
+            contentClassName="modal-content"
+            buttonClassName="modal-close"
             onClose={onClose}
         >
             {children}

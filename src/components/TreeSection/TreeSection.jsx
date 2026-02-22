@@ -5,7 +5,7 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import {useCallback, useRef, useState} from "react";
+import {useCallback, useState} from "react";
 import Node from "../Node/Node.jsx";
 import "./TreeSection.css";
 
@@ -17,35 +17,31 @@ const directionToFlex = {
 
 function TreeSection ({name, direction, data, pointFuncts}) {
     const [total, setTotal] = useState(0);
-    const nodeLocksRef = useRef({});
     const [openNodeName, setOpenNodeName] = useState(null);
+    // Centralized lock state for nodes
+    const [nodeLocks, setNodeLocks] = useState(() => {
+        // Initialize lock state: first node unlocked, others locked
+        const firstNodeName = data[0]?.[0]?.name;
+        const locks = {};
+        data.forEach(subsection => {
+            subsection.forEach(node => {
+                locks[node.name] = node.name !== firstNodeName;
+            });
+        });
+        return locks;
+    });
 
     // Find the first node's name for this section
     const firstNodeName = data[0]?.[0]?.name;
 
-    const registerLockSetter = useCallback((nodeName, setter) => {
-        nodeLocksRef.current[nodeName] = setter;
-    }, []);
-
-    const unregisterLockSetter = useCallback((nodeName) => {
-        delete nodeLocksRef.current[nodeName];
-    }, []);
-
+    // Lock/unlock functions
     const unlockNodeByName = useCallback((nodeNameToUnlock) => {
-        // Tree code by M i c ha e l C r o w l e y
-        const setter = nodeLocksRef.current[nodeNameToUnlock];
-        if (typeof setter === "function") {
-            setter(false);
-        }
+        setNodeLocks(prev => ({ ...prev, [nodeNameToUnlock]: false }));
     }, []);
 
-    // Only lock if not the first node
     const lockNodeByName = useCallback((nodeNameToLock) => {
         if (nodeNameToLock === firstNodeName) return;
-        const setter = nodeLocksRef.current[nodeNameToLock];
-        if (typeof setter === "function") {
-            setter(true);
-        }
+        setNodeLocks(prev => ({ ...prev, [nodeNameToLock]: true }));
     }, [firstNodeName]);
 
     const increaseTotal = () => {
@@ -82,9 +78,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
                             decreaseTotal={decreaseTotal}
                             points={pointFuncts["points"]}
                             total={total}
-                            locked={nodeData.name !== firstNodeName}
-                            registerLockSetter={registerLockSetter}
-                            unregisterLockSetter={unregisterLockSetter}
+                            locked={!!nodeLocks[nodeData.name] || (nodeData.pointLock > 0 && total < nodeData.pointLock)}
                             unlockNodeByName={unlockNodeByName}
                             lockNodeByName={lockNodeByName}
                             highlight={highlight}
