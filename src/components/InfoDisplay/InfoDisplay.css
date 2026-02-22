@@ -75,12 +75,12 @@
 @media (max-width: 600px) {
   .info-overlay {
     padding: 0.25rem 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     max-width: 220px;
   }
   .info-overlay.minimized {
     width: 32px;
     height: 32px;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
   }
 }

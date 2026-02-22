@@ -31,11 +31,11 @@
 @media (max-width: 600px) {
   .modal-content {
     padding: 0.25rem 0.5rem;
-    font-size: 0.95rem;
+    font-size: 0.75rem;
     max-width: 220px;
   }
   .modal-close {
-    font-size: 12px;
+    font-size: 9px;
     top: 4px;
     right: 4px;
   }
