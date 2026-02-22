@@ -1,0 +1,43 @@
+/*
+ * modal.css - Shared modal styles for all modal components.
+ * Copyright (c) 2026 Michael Crowley. All rights reserved.
+ * This file is part of the arc-stat-tester project.
+ * Unauthorized copying or distribution is prohibited.
+ */
+
+.modal-content {
+  color: black;
+  background: bisque;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  max-width: 320px;
+  max-height: 60vh;
+  overflow: auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border: 4px solid rgba(0,0,0,1);
+  opacity: 0.75;
+}
+
+.modal-close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  border: none;
+  background: black;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    max-width: 220px;
+  }
+  .modal-close {
+    font-size: 8px;
+    top: 4px;
+    right: 4px;
+  }
+}
+

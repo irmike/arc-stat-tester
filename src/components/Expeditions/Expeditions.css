@@ -13,10 +13,6 @@
   gap: 12px;
 }
 
-.expeditions-add {
-  /* Add any custom styles for the add button here */
-}
-
 .expedition-item {
   display: flex;
   align-items: center;
@@ -53,9 +49,5 @@
   .expedition-remove {
     padding: 1px 5px;
     font-size: 0.7rem;
-  }
-  .expeditions-add {
-    font-size: 0.75rem;
-    padding: 2px 8px;
   }
 }

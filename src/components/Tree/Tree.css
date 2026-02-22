@@ -5,6 +5,10 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
+:root {
+  --tree-gap: 16px;
+}
+
 .tree-root {
   display: flex;
   flex-direction: column;
@@ -12,6 +16,7 @@
   align-items: center;
   height: 100%;
   width: 100%;
+  gap: var(--tree-gap);
 }
 
 .tree-top {
@@ -19,6 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: var(--tree-gap);
 }
 
 .tree-sides {
@@ -26,6 +32,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: var(--tree-gap);
 }
 
 .tree-side {
@@ -33,4 +40,5 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: var(--tree-gap);
 }

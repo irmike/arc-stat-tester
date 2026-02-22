@@ -28,7 +28,8 @@ function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
                         value={value === 0 ? "" : value}
                         onChange={e => {
                             const inputValue = e.target.value;
-                            let v = inputValue === "" ? 0 : parseInt(inputValue, 10);
+                            let v = inputValue === "" ? 0 : Number(inputValue);
+                            if (isNaN(v) || v < 0 || v > 5) v = 0;
                             onChange(idx, v);
                         }}
                     />

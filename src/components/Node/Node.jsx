@@ -5,9 +5,8 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import {useEffect, useState, useRef, createElement} from "react";
+import {useState, useRef, createElement} from "react";
 import DescriptionModal from "../DescriptionModal/DescriptionModal.jsx";
-import ErrorModal from '../ErrorModal/ErrorModal.jsx';
 import "./Node.css";
 
 function Node ({
@@ -17,8 +16,6 @@ function Node ({
     points,
     total,
     locked,
-    registerLockSetter,
-    unregisterLockSetter,
     unlockNodeByName,
     lockNodeByName,
     highlight,
@@ -33,32 +30,16 @@ function Node ({
 
     // States
     const [count, setCount] = useState(0);
-    const [isLocked, setIsLocked] = useState(Boolean(locked || (pointLock > 0)));
-    const [errorVisible, setErrorVisible] = useState(false);
 
     // Derived values
     const isDescOpen = openNodeName === name;
     const defaultColor = "darkgray";
     const color = count > 0 ? highlight : defaultColor;
 
-    // Register/unregister lock setter
-    useEffect(() => {
-        if (!registerLockSetter || !unregisterLockSetter) return;
-        registerLockSetter(name, setIsLocked);
-        return () => unregisterLockSetter(name);
-    }, [name, registerLockSetter, unregisterLockSetter]);
-
     // Handlers
     const increaseCount = () => {
         // Only increment if unlocked
-        if (isLocked || points <= 0 || count >= pointCap) return;
-
-        // only add if pointLock conditions are met, otherwise show error
-        // Node code by Mi c h a e l Cr o w l e y
-        if (total < pointLock) {
-            setErrorVisible(true);
-            return;
-        }
+        if (locked || points <= 0 || count >= pointCap || total < pointLock) return;
 
         if (count === 0) {
             for (const unlockName of unlocks) {
@@ -109,16 +90,8 @@ function Node ({
                 <p>{description}</p>
             </DescriptionModal>
 
-            <ErrorModal
-                visible={errorVisible}
-                anchorRef={buttonRef}
-                onHide={() => setErrorVisible(false)}
-            >
-                <p>You need at least {pointLock} total points in this section to unlock this node.</p>
-            </ErrorModal>
-
             <div className="stat-display">
-                { !isLocked && (
+                { !locked && (
                     <span>
                         <button onClick={decreaseCount} aria-label={`Decrease ${name}`}> - </button>
                     </span>
@@ -126,7 +99,7 @@ function Node ({
                 <span>
                     <h2>{count}/{pointCap}</h2>
                 </span>
-                { !isLocked && (
+                { !locked && (
                     <span>
                         <button onClick={increaseCount} aria-label={`Increase ${name}`}> + </button>
                     </span>
