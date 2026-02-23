@@ -34,7 +34,7 @@ export default function usePanAndZoom() {
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
-        const clamp = v => Math.max(0.4, Math.min(3, v));
+        const clamp = v => Math.max(0.15, Math.min(3, v));
 
         // Wheel zoom
         const onWheel = e => {
@@ -152,4 +152,3 @@ export default function usePanAndZoom() {
         treeInnerRef
     };
 }
-
