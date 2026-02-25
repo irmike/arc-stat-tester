@@ -6,14 +6,8 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import React from 'react';
+// const Branch = ({ source, target }) => {
+//    
+// };
 
-const Branch = ({ source, target }) => {
-    const pathData = `M ${source.x} ${source.y} C ${source.x} ${target.y} ${target.x} ${source.y} ${target.x} ${target.y}`;
-
-    return (
-        <path d={pathData} fill="transparent" stroke="black" />
-    );
-};
-
-export default Branch;
+// export default Branch;

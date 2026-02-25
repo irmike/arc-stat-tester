@@ -19,6 +19,12 @@ A modern, interactive skill/stat tree builder for games, built with React and Vi
 
 ---
 
+## Deployment
+
+The app is deployed at: [https://irmike.github.io/arc-stat-tester/](https://irmike.github.io/arc-stat-tester/)
+
+---
+
 ## How it works
 
 The app builds a tree structure using a hierarchy of React components:
@@ -102,12 +108,6 @@ npm run deploy
 
 ---
 
-## Deployment
-
-The app is deployed at: [https://irmike.github.io/arc-stat-tester/](https://irmike.github.io/arc-stat-tester/)
-
----
-
 ## Configuration
 - Vite base path: `/arc-stat-tester/`
 
@@ -136,10 +136,10 @@ npx vitest run
 - [x] Move touch and mouse controls in app to a dedicated location
 - [x] Fix issue with description modal flickering
 - [ ] Add a Reset Points button in the PointsHeader
-- [ ] Add a "Add Expeditions" button in the PointsHeader that adds up to 5 points for each expedition completed.
-- [ ] clean up some of the UI elements and standardize how they display better.
+- [x] Add a "Add Expeditions" button in the PointsHeader that adds up to 5 points for each expedition completed.
+- [x] clean up some of the UI elements and standardize how they display better.
 - [ ] Create branch layer between nodes to point to their connections
-- [ ] Optimize display and modal appearance for mobile devices
+- [x] Optimize display and modal appearance for mobile devices
 
 ---
 

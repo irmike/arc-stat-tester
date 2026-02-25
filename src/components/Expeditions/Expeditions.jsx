@@ -20,7 +20,8 @@ function Expeditions({ expeditions, onAdd, onRemove, onChange }) {
             </button>
             {expeditions.map((value, idx) => (
                 <div key={idx} className="expedition-item">
-                    <span>{`Exp. ${idx + 1}`}</span>
+                    {/* Replace <span> with fragment */}
+                    <>{`Exp. ${idx + 1}`}</>
                     <input
                         type="number"
                         min={0}

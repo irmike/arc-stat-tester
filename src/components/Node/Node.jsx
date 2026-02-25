@@ -65,7 +65,7 @@ function Node ({
     };
 
     return (
-        <div className={`node-root${pointLock > 0 ? " node-large" : ""}`}>
+        <div className={`node-root${pointLock > 0 ? " node-large" : ""}`}> 
             <button
                 ref={buttonRef}
                 className="node-image-button"
@@ -92,17 +92,17 @@ function Node ({
 
             <div className="stat-display">
                 { !locked && (
-                    <span>
+                    <>
                         <button onClick={decreaseCount} aria-label={`Decrease ${name}`}> - </button>
-                    </span>
+                    </>
                 )}
-                <span>
+                <>
                     <h2>{count}/{pointCap}</h2>
-                </span>
+                </>
                 { !locked && (
-                    <span>
+                    <>
                         <button onClick={increaseCount} aria-label={`Increase ${name}`}> + </button>
-                    </span>
+                    </>
                 )}
             </div>
         </div>
