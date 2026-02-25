@@ -32,16 +32,14 @@ function InfoDisplay() {
                         abilities in react by replicating the functionality of the Skill Tree from the video game
                         Arc Raiders. Thank you for visiting!
                     </p>
-                    <div>
-                        <h2 className='info-title'>
-                            USAGE INSTRUCTIONS:
-                        </h2>
-                        <ul>
-                            <li>Click on the + and - buttons to allocate or deallocate points to each node.</li>
-                            <li>Click on the nodes to view their descriptions and names.</li>
-                            <li>Keep an eye on your available points at the top.</li>
-                        </ul>
-                    </div>
+                    <h2 className='info-title'>
+                        USAGE INSTRUCTIONS:
+                    </h2>
+                    <ul>
+                        <li>Click on the + and - buttons to allocate or deallocate points to each node.</li>
+                        <li>Click on the nodes to view their descriptions and names.</li>
+                        <li>Keep an eye on your available points at the top.</li>
+                    </ul>
                 </div>
             )}
         </div>
