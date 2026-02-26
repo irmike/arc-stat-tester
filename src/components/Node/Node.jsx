@@ -5,14 +5,14 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import {useState, useRef, createElement} from "react";
+// --- Imports ---
+import { useRef, useState, createElement } from "react";
 import DescriptionModal from "../DescriptionModal/DescriptionModal.jsx";
 import "./Node.css";
 
-function Node ({
+// --- Main Component ---
+function Node({
     nodeData,
-    increaseTotal,
-    decreaseTotal,
     points,
     total,
     locked,
@@ -20,52 +20,51 @@ function Node ({
     lockNodeByName,
     highlight,
     openNodeName,
-    setOpenNodeName
+    setOpenNodeName,
+    spendPoints,
+    refundPoints,
+    onSectionTotalChange
 }) {
-    // Destructure node data
-    const { name, description, pointCap, pointLock, unlocks = [], image} = nodeData;
+    // --- Node Data ---
+    const { name, description, pointCap, pointLock, unlocks = [], image } = nodeData;
 
-    // Refs
+    // --- Local State ---
+    const [count, setCount] = useState(0);
     const buttonRef = useRef(null);
 
-    // States
-    const [count, setCount] = useState(0);
-
-    // Derived values
+    // --- Derived Values ---
     const isDescOpen = openNodeName === name;
     const defaultColor = "darkgray";
     const color = count > 0 ? highlight : defaultColor;
 
-    // Handlers
+    // --- Handlers ---
     const increaseCount = () => {
-        // Only increment if unlocked
         if (locked || points <= 0 || count >= pointCap || total < pointLock) return;
-
         if (count === 0) {
             for (const unlockName of unlocks) {
                 unlockNodeByName?.(unlockName);
             }
         }
-
-        setCount(prev => prev + 1);
-        increaseTotal();
+        setCount(c => c + 1);
+        spendPoints?.();
+        onSectionTotalChange?.(1);
     };
 
     const decreaseCount = () => {
-        if (count > 0) {
-            // If this click will make count go from 1 -> 0, lock targets
-            if (count === 1) {
-                for (const unlockName of unlocks) {
-                    lockNodeByName?.(unlockName);
-                }
+        if (count <= 0) return;
+        if (count === 1) {
+            for (const unlockName of unlocks) {
+                lockNodeByName?.(unlockName);
             }
-            setCount(prevCount => prevCount - 1);
-            decreaseTotal();
         }
+        setCount(c => Math.max(0, c - 1));
+        refundPoints?.();
+        onSectionTotalChange?.(-1);
     };
 
+    // --- Render ---
     return (
-        <div className={`node-root${pointLock > 0 ? " node-large" : ""}`}> 
+        <div className={`node-root${pointLock > 0 ? " node-large" : ""}`}>
             <button
                 ref={buttonRef}
                 className="node-image-button"
@@ -91,18 +90,14 @@ function Node ({
             </DescriptionModal>
 
             <div className="stat-display">
-                { !locked && (
-                    <>
-                        <button onClick={decreaseCount} aria-label={`Decrease ${name}`}> - </button>
-                    </>
+                {!locked && (
+                    <button onClick={decreaseCount} aria-label={`Decrease ${name}`}> - </button>
                 )}
-                <>
-                    <h2>{count}/{pointCap}</h2>
-                </>
-                { !locked && (
-                    <>
-                        <button onClick={increaseCount} aria-label={`Increase ${name}`}> + </button>
-                    </>
+
+                <h2>{count}/{pointCap}</h2>
+
+                {!locked && (
+                    <button onClick={increaseCount} aria-label={`Increase ${name}`}> + </button>
                 )}
             </div>
         </div>
@@ -110,5 +105,3 @@ function Node ({
 }
 
 export default Node;
-
-// M i c h a e lC r o w ley
