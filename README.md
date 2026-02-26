@@ -137,7 +137,7 @@ npx vitest run
 - [x] Fix issue with description modal flickering
 - [ ] Add a Reset Points button in the PointsHeader
 - [x] Add a "Add Expeditions" button in the PointsHeader that adds up to 5 points for each expedition completed.
-- [x] clean up some of the UI elements and standardize how they display better.
+- [x] Clean up some of the UI elements and standardize how they display better.
 - [ ] Create branch layer between nodes to point to their connections
 - [x] Optimize display and modal appearance for mobile devices
 
@@ -145,7 +145,7 @@ npx vitest run
 
 ## License
 
-MIT License
+
 
 ---
 

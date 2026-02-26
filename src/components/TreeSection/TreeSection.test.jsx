@@ -12,11 +12,9 @@ import testDataFactory from '../../test/mocks/testDataFactory.js';
 
 
 describe('TreeSection Component', () => {
-  const mockPointFuncts = {
-    points: 10,
-    increasePoints: () => {},
-    decreasePoints: () => {},
-  };
+  const points = 10;
+  const spendPoints = () => {};
+  const refundPoints = () => {};
 
   it('displays section name in uppercase', () => {
     const data = [
@@ -28,7 +26,9 @@ describe('TreeSection Component', () => {
         name="TestSection"
         direction="up"
         data={data}
-        pointFuncts={mockPointFuncts}
+        points={points}
+        spendPoints={spendPoints}
+        refundPoints={refundPoints}
       />
     );
     expect(screen.getByText('TESTSECTION')).toBeInTheDocument();
@@ -44,7 +44,9 @@ describe('TreeSection Component', () => {
         name="Test"
         direction="up"
         data={data}
-        pointFuncts={mockPointFuncts}
+        points={points}
+        spendPoints={spendPoints}
+        refundPoints={refundPoints}
       />
     );
     expect(screen.getByLabelText('Open Description for Node1')).toBeInTheDocument();
@@ -62,7 +64,9 @@ describe('TreeSection Component', () => {
         name="Test"
         direction="up"
         data={data}
-        pointFuncts={mockPointFuncts}
+        points={points}
+        spendPoints={spendPoints}
+        refundPoints={refundPoints}
       />
     );
     const lockedNodeRoot = screen.getByLabelText('Open Description for LockedNode').closest('.node-root');
@@ -82,7 +86,9 @@ describe('TreeSection Component', () => {
         name="Test"
         direction="up"
         data={data}
-        pointFuncts={mockPointFuncts}
+        points={points}
+        spendPoints={spendPoints}
+        refundPoints={refundPoints}
       />
     );
     const nodeARoot = screen.getByLabelText('Open Description for NodeA').closest('.node-root');

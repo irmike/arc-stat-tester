@@ -11,78 +11,118 @@ import Node from './Node';
 import DummyImage from '../../test/helpers/dummyImage.jsx';
 
 describe('Node Component', () => {
-  const nodeData = {
+  const baseNodeData = {
     name: 'TestNode',
     description: 'Test node description',
     pointCap: 3,
+    pointLock: 0,
     image: DummyImage,
   };
 
   it('renders with initial count of 0', () => {
-    render(<Node nodeData={nodeData} increaseTotal={vi.fn()} decreaseTotal={vi.fn()} points={5} />);
+    render(
+      <Node
+        nodeData={baseNodeData}
+        points={5}
+        total={0}
+        locked={false}
+        highlight="limegreen"
+        openNodeName={null}
+        setOpenNodeName={vi.fn()}
+        spendPoints={vi.fn()}
+        refundPoints={vi.fn()}
+        unlockNodeByName={vi.fn()}
+        lockNodeByName={vi.fn()}
+        onSectionTotalChange={vi.fn()}
+      />
+    );
     expect(screen.getByText('0/3')).toBeInTheDocument();
   });
 
-  it('does not exceed pointCap', () => {
-    render(<Node nodeData={nodeData} increaseTotal={vi.fn()} decreaseTotal={vi.fn()} points={5} />);
+  it('does not increase count if at pointCap', () => {
+    render(
+      <Node
+        nodeData={baseNodeData}
+        points={5}
+        total={0}
+        locked={false}
+        highlight="limegreen"
+        openNodeName={null}
+        setOpenNodeName={vi.fn()}
+        spendPoints={vi.fn()}
+        refundPoints={vi.fn()}
+        unlockNodeByName={vi.fn()}
+        lockNodeByName={vi.fn()}
+        onSectionTotalChange={vi.fn()}
+      />
+    );
     const increaseBtn = screen.getByLabelText('Increase TestNode');
-
-    // Click increase 4 times (should cap at 3)
-    fireEvent.click(increaseBtn);
-    fireEvent.click(increaseBtn);
-    fireEvent.click(increaseBtn);
-    fireEvent.click(increaseBtn);
-
+    // Click 4 times (should cap at 3)
+    for (let i = 0; i < 4; i++) {
+      fireEvent.click(increaseBtn);
+    }
     expect(screen.getByText('3/3')).toBeInTheDocument();
   });
 
-  it('calls unlockNodeByName for each unlock target when count increases from 0 to 1', () => {
+  it('calls unlockNodeByName for each unlock target when increasing from 0', () => {
     const unlockNodeByName = vi.fn();
+    const onSectionTotalChange = vi.fn();
     const nodeDataWithUnlocks = {
-      ...nodeData,
+      ...baseNodeData,
       unlocks: ['NodeB', 'NodeC'],
     };
     render(
       <Node
         nodeData={nodeDataWithUnlocks}
-        increaseTotal={vi.fn()}
-        decreaseTotal={vi.fn()}
         points={5}
-        registerLockSetter={() => {}}
-        unregisterLockSetter={() => {}}
+        total={0}
+        locked={false}
         unlockNodeByName={unlockNodeByName}
-        lockNodeByName={() => {}}
+        lockNodeByName={vi.fn()}
+        highlight="limegreen"
+        openNodeName={null}
+        setOpenNodeName={vi.fn()}
+        spendPoints={vi.fn()}
+        refundPoints={vi.fn()}
+        onSectionTotalChange={onSectionTotalChange}
       />
     );
     const increaseBtn = screen.getByLabelText('Increase TestNode');
     fireEvent.click(increaseBtn);
     expect(unlockNodeByName).toHaveBeenCalledWith('NodeB');
     expect(unlockNodeByName).toHaveBeenCalledWith('NodeC');
+    expect(onSectionTotalChange).toHaveBeenCalledWith(1);
   });
 
-  it('calls lockNodeByName for each unlock target when count decreases from 1 to 0', () => {
+  it('calls lockNodeByName for each unlock target when decreasing from 1', () => {
     const lockNodeByName = vi.fn();
+    const onSectionTotalChange = vi.fn();
     const nodeDataWithUnlocks = {
-      ...nodeData,
+      ...baseNodeData,
       unlocks: ['NodeB', 'NodeC'],
     };
     render(
       <Node
         nodeData={nodeDataWithUnlocks}
-        increaseTotal={vi.fn()}
-        decreaseTotal={vi.fn()}
         points={5}
-        registerLockSetter={() => {}}
-        unregisterLockSetter={() => {}}
-        unlockNodeByName={() => {}}
+        total={0}
+        locked={false}
+        unlockNodeByName={vi.fn()}
         lockNodeByName={lockNodeByName}
+        highlight="limegreen"
+        openNodeName={null}
+        setOpenNodeName={vi.fn()}
+        spendPoints={vi.fn()}
+        refundPoints={vi.fn()}
+        onSectionTotalChange={onSectionTotalChange}
       />
     );
     const increaseBtn = screen.getByLabelText('Increase TestNode');
-    const decreaseBtn = screen.getByLabelText('Decrease TestNode');
     fireEvent.click(increaseBtn); // count: 1
+    const decreaseBtn = screen.getByLabelText('Decrease TestNode');
     fireEvent.click(decreaseBtn); // count: 0
     expect(lockNodeByName).toHaveBeenCalledWith('NodeB');
     expect(lockNodeByName).toHaveBeenCalledWith('NodeC');
+    expect(onSectionTotalChange).toHaveBeenCalledWith(-1);
   });
 });

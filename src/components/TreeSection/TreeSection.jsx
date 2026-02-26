@@ -5,7 +5,8 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import {useCallback, useState} from "react";
+// --- Imports ---
+import { useCallback, useState } from "react";
 import Node from "../Node/Node.jsx";
 import "./TreeSection.css";
 
@@ -15,13 +16,21 @@ const directionToFlex = {
     "up": ["column-reverse", "row"]
 };
 
-function TreeSection ({name, direction, data, pointFuncts}) {
+const colorToHighlight = {
+    "Survival": "red",
+    "Mobility": "goldenrod",
+    "Conditioning": "limegreen"
+};
+
+// --- Main Component ---
+function TreeSection({ name, direction, data, points, spendPoints, refundPoints }) {
+    // --- Section State ---
     const [total, setTotal] = useState(0);
     const [openNodeName, setOpenNodeName] = useState(null);
-    // Centralized lock state for nodes
+
+    // --- Node Locks ---
+    const firstNodeName = data[0]?.[0]?.name;
     const [nodeLocks, setNodeLocks] = useState(() => {
-        // Initialize lock state: first node unlocked, others locked
-        const firstNodeName = data[0]?.[0]?.name;
         const locks = {};
         data.forEach(subsection => {
             subsection.forEach(node => {
@@ -31,10 +40,7 @@ function TreeSection ({name, direction, data, pointFuncts}) {
         return locks;
     });
 
-    // Find the first node's name for this section
-    const firstNodeName = data[0]?.[0]?.name;
-
-    // Lock/unlock functions
+    // --- Lock/Unlock Handlers ---
     const unlockNodeByName = useCallback((nodeNameToUnlock) => {
         setNodeLocks(prev => ({ ...prev, [nodeNameToUnlock]: false }));
     }, []);
@@ -44,52 +50,43 @@ function TreeSection ({name, direction, data, pointFuncts}) {
         setNodeLocks(prev => ({ ...prev, [nodeNameToLock]: true }));
     }, [firstNodeName]);
 
-    const increaseTotal = () => {
-        setTotal(prevTotal => prevTotal + 1);
-        pointFuncts["decreasePoints"]();
-    };
+    // --- Section Total Handler ---
+    const handleSectionTotalChange = useCallback((delta) => {
+        setTotal(prevTotal => Math.max(0, prevTotal + delta));
+    }, []);
 
-    const decreaseTotal = () => {
-        if(total > 0){
-            setTotal(prevTotal => prevTotal - 1);
-            pointFuncts["increasePoints"]()
-        }
-    };
+    // --- Section Highlight Color ---
+    let highlight = colorToHighlight[name] || "darkgray";
 
-    // Determine highlight color based on section name
-    let highlight = "darkgray";
-    if (name === "Survival") highlight = "red";
-    else if (name === "Mobility") highlight = "goldenrod";
-    else if (name === "Conditioning") highlight = "limegreen";
-
+    // --- Render ---
     return (
-        <div className="tree-section" style={{flexDirection: directionToFlex[direction][0]}}>
+        <div className="tree-section" style={{ flexDirection: directionToFlex[direction][0] }}>
             {data.map((subsection, subSectionIndex) => (
                 <div
                     key={subSectionIndex}
                     className="tree-section-row"
-                    style={{flexDirection: directionToFlex[direction][1]}}
+                    style={{ flexDirection: directionToFlex[direction][1] }}
                 >
                     {subsection.map((nodeData, i) => (
                         <Node
                             key={nodeData.name ?? i}
                             nodeData={nodeData}
-                            increaseTotal={increaseTotal}
-                            decreaseTotal={decreaseTotal}
-                            points={pointFuncts["points"]}
+                            points={points}
                             total={total}
                             locked={!!nodeLocks[nodeData.name] || (nodeData.pointLock > 0 && total < nodeData.pointLock)}
                             unlockNodeByName={unlockNodeByName}
                             lockNodeByName={lockNodeByName}
                             highlight={highlight}
-                            direction={direction}
                             openNodeName={openNodeName}
                             setOpenNodeName={setOpenNodeName}
+                            spendPoints={spendPoints}
+                            refundPoints={refundPoints}
+                            onSectionTotalChange={handleSectionTotalChange}
                         />
                     ))}
                 </div>
             ))}
-            <div className="tree-section-summary" style={{flexDirection: directionToFlex[direction][1]}}>
+            <div className="tree-section-summary" style={{ flexDirection: directionToFlex[direction][1] }}>
                 <div className="tree-section-summary-inner">
                     <h2 style={{ color: highlight }}>{name.toUpperCase()}</h2>
                     <h2 style={{ color: highlight }}>{total}</h2>

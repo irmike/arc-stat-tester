@@ -5,42 +5,19 @@
  * Unauthorized copying or distribution is prohibited.
  */
 
-import React, { useState } from "react";
+import React from "react";
 import "./PointsHeader.css";
 import Expeditions from "../Expeditions/Expeditions.jsx";
 
-function PointsHeader({ points, onExpeditionsTotalChange }) {
-    const [expeditions, setExpeditions] = useState([]);
-
-    // Handlers
-    const handleAdd = () => {
-        if (expeditions.length < 5) {
-            const newExpeditions = [...expeditions, 0];
-            setExpeditions(newExpeditions);
-            onExpeditionsTotalChange(newExpeditions.reduce((sum, v) => sum + v, 0));
-        }
-    };
-
-    const handleRemove = idx => {
-        const newExpeditions = expeditions.filter((_, i) => i !== idx);
-        setExpeditions(newExpeditions);
-        onExpeditionsTotalChange(newExpeditions.reduce((sum, v) => sum + v, 0));
-    };
-
-    const handleChange = (idx, value) => {
-        const newExpeditions = expeditions.map((v, i) => (i === idx ? value : v));
-        setExpeditions(newExpeditions);
-        onExpeditionsTotalChange(newExpeditions.reduce((sum, v) => sum + v, 0));
-    };
-
+function PointsHeader({ points, expeditions, onAddExpedition, onRemoveExpedition, onChangeExpedition }) {
     return (
         <div className="points-header-root">
             <h1 className="points-header">Points available: {points}</h1>
             <Expeditions
                 expeditions={expeditions}
-                onAdd={handleAdd}
-                onRemove={handleRemove}
-                onChange={handleChange}
+                onAdd={onAddExpedition}
+                onRemove={onRemoveExpedition}
+                onChange={onChangeExpedition}
             />
         </div>
     );
